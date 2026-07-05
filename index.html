@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Σχολή Οδηγών Τεννέ | Δίπλωμα Αυτοκινήτου & Μοτοσικλέτας</title>
+<meta name="description" content="Σχολή Οδηγών Τεννέ — Δίπλωμα αυτοκινήτου, μοτοσικλέτας, ΠΕΙ και ανανεώσεις. Σύγχρονος στόλος, έμπειροι εκπαιδευτές, υψηλά ποσοστά επιτυχίας με τη μία.">
+<meta property="og:title" content="Σχολή Οδηγών Τεννέ">
+<meta property="og:description" content="Το δίπλωμα είναι η αρχή. Εμείς σε μαθαίνουμε να οδηγείς.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=1200&auto=format&fit=crop">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@500;600;700;800&family=Commissioner:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="2" y="2" width="60" height="60" rx="12" fill="%23FFC400"/><text x="32" y="46" font-family="Arial Black,Arial" font-size="38" font-weight="900" text-anchor="middle" fill="%23191C21">Σ</text></svg>'>
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --asphalt:#15171C;
+  --asphalt-2:#1C1F26;
+  --asphalt-3:#242833;
+  --concrete:#F1F2EF;
+  --white:#FFFFFF;
+  --signal:#FFC400;
+  --signal-deep:#E8AE00;
+  --ink:#191C21;
+  --muted:#5B616D;
+  --line:rgba(25,28,33,.1);
+  --line-light:rgba(255,255,255,.09);
+  --pass:#17A05E;
+  --font-display:'Advent Pro',sans-serif;
+  --font-body:'Commissioner',sans-serif;
+  --shadow-sm:0 2px 10px rgba(21,23,28,.07);
+  --shadow-md:0 14px 40px -12px rgba(21,23,28,.22);
+  --shadow-lg:0 30px 70px -20px rgba(21,23,28,.38);
+  --shadow-glow:0 10px 40px -8px rgba(255,196,0,.45);
+  --radius:18px;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--concrete);color:var(--ink);line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+::selection{background:var(--signal);color:var(--ink)}
+
+h1,h2,h3,.display{font-family:var(--font-display);line-height:1.04;letter-spacing:.005em}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:700;font-size:.95rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.eyebrow::before{content:"";width:34px;height:3px;background:repeating-linear-gradient(90deg,var(--signal) 0 8px,transparent 8px 14px);border-radius:2px}
+.dark .eyebrow{color:rgba(255,255,255,.55)}
+.section-title{font-size:clamp(2.4rem,5.2vw,4.1rem);font-weight:800;text-transform:uppercase;margin:.5rem 0 1rem}
+.section-title em{font-style:normal;color:transparent;-webkit-text-stroke:1.6px var(--ink)}
+.dark .section-title em{-webkit-text-stroke:1.6px var(--signal);color:transparent}
+.lead{color:var(--muted);font-size:1.08rem;max-width:56ch}
+.dark .lead{color:rgba(255,255,255,.62)}
+.container{width:min(1180px,92%);margin:0 auto}
+section{padding:clamp(4.5rem,9vw,7.5rem) 0;position:relative}
+
+/* ============ ROAD PROGRESS BAR ============ */
+#roadProgress{position:fixed;top:0;left:0;height:5px;width:0;z-index:1200;background:repeating-linear-gradient(90deg,var(--signal) 0 26px,var(--asphalt) 26px 40px);box-shadow:0 1px 8px rgba(255,196,0,.5);transition:width .12s linear}
+
+/* ============ NAV ============ */
+header{position:fixed;top:0;left:0;right:0;z-index:1000;transition:background .35s var(--ease),box-shadow .35s var(--ease),padding .35s var(--ease);padding:20px 0}
+header.scrolled{background:rgba(21,23,28,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:12px 0;box-shadow:0 10px 30px -12px rgba(0,0,0,.5)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:12px;color:#fff}
+.brand .plate{width:46px;height:46px;flex:0 0 46px;filter:drop-shadow(0 4px 12px rgba(255,196,0,.45));transition:transform .4s var(--ease)}
+.brand:hover .plate{transform:rotate(-6deg) scale(1.06)}
+.brand-name{font-family:var(--font-display);font-weight:800;font-size:1.5rem;letter-spacing:.04em;line-height:1;text-transform:uppercase}
+.brand-sub{display:block;font-family:var(--font-body);font-weight:600;font-size:.62rem;letter-spacing:.32em;text-transform:uppercase;color:var(--signal);margin-top:3px}
+.nav-links{display:flex;align-items:center;gap:30px}
+.nav-links a{color:rgba(255,255,255,.78);font-weight:500;font-size:.94rem;position:relative;padding:4px 0;transition:color .25s}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-2px;width:100%;height:2px;background:repeating-linear-gradient(90deg,var(--signal) 0 7px,transparent 7px 12px);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+.nav-links a:hover{color:#fff}
+.nav-links a:hover::after{transform:scaleX(1)}
+.nav-cta{background:var(--signal);color:var(--ink)!important;font-weight:700;padding:11px 22px;border-radius:12px;box-shadow:var(--shadow-glow);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.nav-cta::after{display:none}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 16px 44px -8px rgba(255,196,0,.6)}
+.lang-switch{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:5px}
+.lang-btn{display:flex;align-items:center;gap:7px;background:transparent;border:none;cursor:pointer;padding:6px 10px;border-radius:8px;font-family:var(--font-body);font-weight:700;font-size:.78rem;color:rgba(255,255,255,.6);transition:all .25s}
+.lang-btn svg{width:20px;height:14px;border-radius:2.5px;box-shadow:0 1px 4px rgba(0,0,0,.4)}
+.lang-btn.active{background:var(--signal);color:var(--ink)}
+.burger{display:none;background:transparent;border:none;cursor:pointer;width:46px;height:46px;position:relative;z-index:1300}
+.burger span{position:absolute;left:10px;right:10px;height:2.5px;background:#fff;border-radius:2px;transition:all .35s var(--ease)}
+.burger span:nth-child(1){top:15px}
+.burger span:nth-child(2){top:22px;background:var(--signal)}
+.burger span:nth-child(3){top:29px}
+
+/* Mobile menu */
+.mobile-menu{position:fixed;inset:0;background:linear-gradient(160deg,var(--asphalt) 0%,var(--asphalt-3) 100%);z-index:1250;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;opacity:0;visibility:hidden;transition:opacity .4s var(--ease),visibility .4s}
+.mobile-menu.open{opacity:1;visibility:visible}
+.mobile-menu::before{content:"";position:absolute;top:0;bottom:0;left:50%;width:4px;transform:translateX(-50%);background:repeating-linear-gradient(180deg,rgba(255,196,0,.16) 0 34px,transparent 34px 60px)}
+.mobile-menu a{color:#fff;font-family:var(--font-display);font-weight:700;font-size:2rem;text-transform:uppercase;letter-spacing:.03em;padding:10px 26px;position:relative;transform:translateY(24px);opacity:0;transition:transform .5s var(--ease),opacity .5s var(--ease),color .25s}
+.mobile-menu.open a{transform:translateY(0);opacity:1}
+.mobile-menu a:hover{color:var(--signal)}
+.mobile-close{position:absolute;top:22px;right:5%;width:54px;height:54px;border:1.5px solid rgba(255,255,255,.25);background:rgba(255,255,255,.05);border-radius:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s var(--ease)}
+.mobile-close:hover{background:var(--signal);border-color:var(--signal)}
+.mobile-close svg{width:22px;height:22px;stroke:#fff;stroke-width:2.5;transition:stroke .3s}
+.mobile-close:hover svg{stroke:var(--ink)}
+.mobile-lang{display:flex;gap:10px;margin-top:26px;transform:translateY(24px);opacity:0;transition:transform .5s var(--ease) .25s,opacity .5s var(--ease) .25s}
+.mobile-menu.open .mobile-lang{transform:translateY(0);opacity:1}
+.mobile-lang .lang-btn{border:1px solid rgba(255,255,255,.2);border-radius:10px;padding:9px 16px;font-size:.85rem}
+
+/* ============ HERO ============ */
+.hero{min-height:100svh;background:radial-gradient(1200px 700px at 78% -10%,#2A2E3A 0%,var(--asphalt) 55%);color:#fff;display:flex;align-items:center;padding:150px 0 90px;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;background-image:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="140" height="140"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2"/><feColorMatrix values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .04 0"/></filter><rect width="140" height="140" filter="url(%23n)"/></svg>')}
+.lane{position:absolute;top:-10%;bottom:-10%;width:5px;background:repeating-linear-gradient(180deg,rgba(255,196,0,.85) 0 42px,transparent 42px 78px);animation:laneMove 2.2s linear infinite;filter:drop-shadow(0 0 10px rgba(255,196,0,.35))}
+.lane.l1{left:8%;opacity:.16}
+.lane.l2{left:50.5%;opacity:.10;animation-duration:1.6s}
+.lane.l3{right:6%;opacity:.2;animation-duration:2.8s}
+@keyframes laneMove{to{transform:translateY(78px)}}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center;position:relative;z-index:2}
+.hero-copy .eyebrow{color:rgba(255,255,255,.55)}
+.hero h1{font-size:clamp(3rem,7vw,5.6rem);font-weight:800;text-transform:uppercase;margin:1.1rem 0 1.4rem}
+.hero h1 .stroke{display:block;color:transparent;-webkit-text-stroke:1.8px var(--signal)}
+.hero p{color:rgba(255,255,255,.66);font-size:1.12rem;max-width:50ch;margin-bottom:2.2rem}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:1rem;padding:16px 30px;border-radius:14px;transition:transform .3s var(--ease),box-shadow .3s var(--ease),background .3s;cursor:pointer;border:none;font-family:var(--font-body)}
+.btn-primary{background:var(--signal);color:var(--ink);box-shadow:var(--shadow-glow)}
+.btn-primary:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 20px 50px -10px rgba(255,196,0,.65)}
+.btn-primary svg{transition:transform .3s var(--ease)}
+.btn-primary:hover svg{transform:translateX(4px)}
+.btn-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.25)}
+.btn-ghost:hover{border-color:var(--signal);color:var(--signal);transform:translateY(-3px)}
+.hero-badges{display:flex;gap:26px;margin-top:2.6rem;flex-wrap:wrap}
+.hero-badge{display:flex;align-items:center;gap:11px;color:rgba(255,255,255,.7);font-size:.9rem;font-weight:500}
+.hero-badge .dot{width:34px;height:34px;flex:0 0 34px;border-radius:10px;background:rgba(255,196,0,.12);border:1px solid rgba(255,196,0,.3);display:flex;align-items:center;justify-content:center}
+.hero-badge svg{width:16px;height:16px;stroke:var(--signal);fill:none;stroke-width:2.2}
+
+.hero-visual{position:relative}
+.hero-photo{border-radius:24px;overflow:hidden;box-shadow:0 40px 90px -20px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.08);transform:rotate(2.5deg);position:relative;cursor:zoom-in}
+.hero-photo img{width:100%;height:520px;object-fit:cover;transition:transform 6s var(--ease)}
+.hero-photo:hover img{transform:scale(1.07)}
+.hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(200deg,transparent 55%,rgba(21,23,28,.65) 100%);pointer-events:none}
+.hero-plate{position:absolute;top:-34px;left:-34px;width:118px;height:118px;filter:drop-shadow(0 18px 40px rgba(255,196,0,.4));animation:plateFloat 5s ease-in-out infinite;z-index:3}
+@keyframes plateFloat{0%,100%{transform:translateY(0) rotate(-7deg)}50%{transform:translateY(-14px) rotate(-3deg)}}
+.sign-chip{position:absolute;background:rgba(28,31,38,.85);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:12px 16px;display:flex;align-items:center;gap:12px;box-shadow:0 20px 50px -12px rgba(0,0,0,.6);z-index:3}
+.sign-chip .cat{font-family:var(--font-display);font-weight:800;font-size:1.25rem;color:var(--ink);background:var(--signal);width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center}
+.sign-chip .txt{font-size:.8rem;font-weight:600;color:rgba(255,255,255,.85);line-height:1.3}
+.sign-chip .txt small{display:block;font-weight:400;color:rgba(255,255,255,.5)}
+.chip-1{bottom:44px;left:-46px;animation:plateFloat 6s ease-in-out infinite .8s}
+.chip-2{top:26%;right:-30px;animation:plateFloat 7s ease-in-out infinite 1.6s}
+.hero-scroll{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,.4);font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;z-index:2}
+.hero-scroll .wheel{width:24px;height:38px;border:1.5px solid rgba(255,255,255,.3);border-radius:13px;position:relative}
+.hero-scroll .wheel::after{content:"";position:absolute;top:7px;left:50%;transform:translateX(-50%);width:3px;height:8px;border-radius:2px;background:var(--signal);animation:scrollHint 1.8s ease-in-out infinite}
+@keyframes scrollHint{0%{opacity:1;top:7px}70%{opacity:0;top:20px}100%{opacity:0;top:7px}}
+
+/* Entry animation */
+.stagger>*{opacity:0;transform:translateY(34px);animation:riseIn .9s var(--ease) forwards}
+.stagger>*:nth-child(1){animation-delay:.15s}
+.stagger>*:nth-child(2){animation-delay:.3s}
+.stagger>*:nth-child(3){animation-delay:.45s}
+.stagger>*:nth-child(4){animation-delay:.6s}
+.stagger>*:nth-child(5){animation-delay:.75s}
+@keyframes riseIn{to{opacity:1;transform:translateY(0)}}
+.hero-visual{opacity:0;transform:translateY(40px) scale(.96);animation:riseIn 1.1s var(--ease) .5s forwards}
+
+/* ============ SCROLL REVEALS ============ */
+.reveal{opacity:0;transform:translateY(46px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal.in{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-56px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.reveal-right{opacity:0;transform:translateX(56px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.reveal-left.in,.reveal-right.in{opacity:1;transform:translateX(0)}
+.reveal-scale{opacity:0;transform:scale(.9);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal-scale.in{opacity:1;transform:scale(1)}
+[data-delay="1"]{transition-delay:.12s}
+[data-delay="2"]{transition-delay:.24s}
+[data-delay="3"]{transition-delay:.36s}
+[data-delay="4"]{transition-delay:.48s}
+[data-delay="5"]{transition-delay:.6s}
+
+/* ============ STATS BAND ============ */
+.stats{background:var(--signal);padding:0;position:relative;overflow:hidden}
+.stats::before{content:"";position:absolute;top:50%;left:0;right:0;height:4px;transform:translateY(-50%);background:repeating-linear-gradient(90deg,rgba(21,23,28,.14) 0 40px,transparent 40px 72px);pointer-events:none}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;position:relative}
+.stat{padding:54px 20px;text-align:center;transition:background .3s}
+.stat:hover{background:rgba(21,23,28,.05)}
+.stat b{display:block;font-family:var(--font-display);font-weight:800;font-size:clamp(2.6rem,4.4vw,3.7rem);line-height:1;color:var(--ink)}
+.stat span{display:block;margin-top:8px;font-weight:600;font-size:.86rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(21,23,28,.62)}
+
+/* ============ LICENSE CARDS ============ */
+.licenses{background:var(--concrete)}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:3.4rem;flex-wrap:wrap}
+.cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.lcard{background:var(--white);border-radius:var(--radius);padding:36px 30px 32px;position:relative;box-shadow:var(--shadow-sm);border:1px solid var(--line);overflow:hidden;transition:transform .45s var(--ease),box-shadow .45s var(--ease)}
+.lcard::before{content:"";position:absolute;top:0;left:0;right:0;height:5px;background:repeating-linear-gradient(90deg,var(--signal) 0 18px,transparent 18px 30px);opacity:0;transition:opacity .4s}
+.lcard:hover{transform:translateY(-10px);box-shadow:var(--shadow-lg)}
+.lcard:hover::before{opacity:1}
+.lcard .cat-plate{width:66px;height:66px;border-radius:16px;background:var(--asphalt);color:var(--signal);font-family:var(--font-display);font-weight:800;font-size:1.7rem;display:flex;align-items:center;justify-content:center;margin-bottom:22px;box-shadow:0 12px 26px -8px rgba(21,23,28,.4);transition:transform .45s var(--ease),background .45s}
+.lcard:hover .cat-plate{transform:rotate(-8deg) scale(1.08);background:var(--signal);color:var(--ink)}
+.lcard h3{font-size:1.55rem;font-weight:700;text-transform:uppercase;margin-bottom:10px}
+.lcard p{color:var(--muted);font-size:.96rem;margin-bottom:18px}
+.lcard .tags{display:flex;flex-wrap:wrap;gap:8px}
+.lcard .tags li{font-size:.74rem;font-weight:600;letter-spacing:.05em;padding:6px 12px;border-radius:999px;background:var(--concrete);border:1px solid var(--line);color:var(--muted)}
+
+/* ============ WHY / SCHOOL ============ */
+.why{background:var(--asphalt);color:#fff;overflow:hidden}
+.why .lane{opacity:.08}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;position:relative;z-index:2}
+.why-photo{position:relative}
+.why-photo .frame{border-radius:24px;overflow:hidden;box-shadow:0 40px 90px -25px rgba(0,0,0,.75);cursor:zoom-in}
+.why-photo .frame img{width:100%;height:560px;object-fit:cover;transition:transform 5s var(--ease)}
+.why-photo .frame:hover img{transform:scale(1.08)}
+.why-photo::after{content:"";position:absolute;inset:26px -26px -26px 26px;border:1.5px dashed rgba(255,196,0,.4);border-radius:24px;z-index:-1}
+.exp-tag{position:absolute;bottom:-28px;left:-28px;background:var(--signal);color:var(--ink);border-radius:18px;padding:20px 26px;box-shadow:var(--shadow-glow);text-align:center}
+.exp-tag b{display:block;font-family:var(--font-display);font-weight:800;font-size:2.6rem;line-height:1}
+.exp-tag span{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.feature-list{display:flex;flex-direction:column;gap:8px;margin-top:2rem}
+.feature{display:flex;gap:18px;padding:20px;border-radius:16px;border:1px solid transparent;transition:background .35s,border-color .35s,transform .35s var(--ease)}
+.feature:hover{background:rgba(255,255,255,.04);border-color:var(--line-light);transform:translateX(8px)}
+.feature .f-icon{width:52px;height:52px;flex:0 0 52px;border-radius:14px;background:rgba(255,196,0,.1);border:1px solid rgba(255,196,0,.28);display:flex;align-items:center;justify-content:center}
+.feature .f-icon svg{width:23px;height:23px;stroke:var(--signal);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.feature h3{font-size:1.22rem;font-weight:700;text-transform:uppercase;margin-bottom:4px}
+.feature p{color:rgba(255,255,255,.58);font-size:.93rem}
+
+/* ============ PROCESS ============ */
+.process{background:var(--concrete);overflow:hidden}
+.route{position:relative;margin-top:3.6rem}
+.route::before{content:"";position:absolute;left:33px;top:10px;bottom:10px;width:4px;background:repeating-linear-gradient(180deg,var(--signal) 0 22px,transparent 22px 38px);border-radius:2px}
+.step{display:grid;grid-template-columns:70px 1fr;gap:26px;padding:26px 0;position:relative}
+.step .marker{width:68px;height:68px;border-radius:50%;background:var(--white);border:3px solid var(--signal);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;font-size:1.5rem;box-shadow:var(--shadow-md);position:relative;z-index:2;transition:transform .4s var(--ease),background .4s,color .4s}
+.step:hover .marker{transform:scale(1.12);background:var(--signal)}
+.step-body{background:var(--white);border-radius:var(--radius);padding:28px 32px;border:1px solid var(--line);box-shadow:var(--shadow-sm);transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.step:hover .step-body{transform:translateX(8px);box-shadow:var(--shadow-md)}
+.step-body h3{font-size:1.4rem;font-weight:700;text-transform:uppercase;margin-bottom:6px}
+.step-body p{color:var(--muted);font-size:.97rem}
+
+/* ============ GALLERY ============ */
+.gallery{background:var(--white)}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:250px;gap:18px}
+.g-item{border-radius:16px;overflow:hidden;position:relative;cursor:zoom-in;box-shadow:var(--shadow-sm)}
+.g-item.tall{grid-row:span 2}
+.g-item img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease),filter .6s}
+.g-item::after{content:"+";position:absolute;right:14px;bottom:14px;width:42px;height:42px;border-radius:12px;background:var(--signal);color:var(--ink);font-family:var(--font-display);font-weight:800;font-size:1.5rem;display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(10px);transition:all .4s var(--ease);box-shadow:var(--shadow-glow)}
+.g-item:hover::after{opacity:1;transform:translateY(0)}
+.g-item:hover img{transform:scale(1.08);filter:brightness(.85)}
+
+/* ============ REVIEWS ============ */
+.reviews{background:var(--asphalt);color:#fff;overflow:hidden;padding-bottom:6.5rem}
+.reviews .container{margin-bottom:3rem}
+.marquee{display:flex;gap:24px;width:max-content;animation:marquee 46s linear infinite}
+.marquee:hover{animation-play-state:paused}
+@keyframes marquee{to{transform:translateX(-50%)}}
+.review-card{width:400px;flex:0 0 auto;background:var(--asphalt-2);border:1px solid var(--line-light);border-radius:20px;padding:32px;transition:border-color .35s,transform .35s var(--ease)}
+.review-card:hover{border-color:rgba(255,196,0,.45);transform:translateY(-6px)}
+.review-card .stars{color:var(--signal);letter-spacing:4px;font-size:1.05rem;margin-bottom:16px}
+.review-card p{color:rgba(255,255,255,.78);font-size:.99rem;margin-bottom:22px}
+.review-card .who{display:flex;align-items:center;gap:13px}
+.review-card .avatar{width:46px;height:46px;border-radius:12px;background:var(--signal);color:var(--ink);font-family:var(--font-display);font-weight:800;font-size:1.15rem;display:flex;align-items:center;justify-content:center}
+.review-card .who b{display:block;font-size:.95rem}
+.review-card .who span{font-size:.78rem;color:rgba(255,255,255,.45)}
+
+/* ============ CONTACT ============ */
+.contact{background:var(--concrete)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.contact-card{display:flex;gap:18px;background:var(--white);border:1px solid var(--line);border-radius:16px;padding:24px;margin-bottom:16px;box-shadow:var(--shadow-sm);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.contact-card:hover{transform:translateX(8px);box-shadow:var(--shadow-md)}
+.contact-card .c-icon{width:52px;height:52px;flex:0 0 52px;border-radius:14px;background:var(--asphalt);display:flex;align-items:center;justify-content:center}
+.contact-card .c-icon svg{width:22px;height:22px;stroke:var(--signal);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.contact-card h3{font-size:1.1rem;font-weight:700;text-transform:uppercase;margin-bottom:3px}
+.contact-card p,.contact-card a{color:var(--muted);font-size:.96rem}
+.contact-card a:hover{color:var(--ink)}
+.cta-panel{background:var(--asphalt);color:#fff;border-radius:24px;padding:52px 46px;position:relative;overflow:hidden;box-shadow:var(--shadow-lg)}
+.cta-panel::before{content:"";position:absolute;top:0;bottom:0;right:34px;width:4px;background:repeating-linear-gradient(180deg,rgba(255,196,0,.5) 0 24px,transparent 24px 42px)}
+.cta-panel h3{font-size:2.1rem;font-weight:800;text-transform:uppercase;margin-bottom:14px}
+.cta-panel h3 em{font-style:normal;color:var(--signal)}
+.cta-panel p{color:rgba(255,255,255,.62);margin-bottom:30px;max-width:38ch}
+.cta-panel .hours{margin-top:34px;padding-top:26px;border-top:1px solid var(--line-light)}
+.cta-panel .hours li{display:flex;justify-content:space-between;padding:7px 0;font-size:.93rem;color:rgba(255,255,255,.7);max-width:340px}
+.cta-panel .hours li b{color:#fff;font-weight:600}
+
+/* ============ FOOTER ============ */
+footer{background:#101216;color:rgba(255,255,255,.55);padding:56px 0 30px}
+.footer-grid{display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap;padding-bottom:34px;border-bottom:1px solid rgba(255,255,255,.07);margin-bottom:26px}
+.footer-nav{display:flex;gap:26px;flex-wrap:wrap}
+.footer-nav a{font-size:.9rem;transition:color .25s}
+.footer-nav a:hover{color:var(--signal)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font-size:.84rem}
+.footer-bottom a{color:var(--signal);font-weight:600}
+.footer-bottom a:hover{text-decoration:underline}
+
+/* ============ LIGHTBOX ============ */
+.lightbox{position:fixed;inset:0;background:rgba(13,14,18,.94);backdrop-filter:blur(10px);z-index:2000;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .4s var(--ease),visibility .4s}
+.lightbox.open{opacity:1;visibility:visible}
+.lightbox img{max-width:90vw;max-height:86vh;border-radius:16px;box-shadow:0 40px 120px rgba(0,0,0,.8);transform:scale(.88);transition:transform .45s var(--ease)}
+.lightbox.open img{transform:scale(1)}
+.lightbox-close{position:absolute;top:24px;right:26px;width:54px;height:54px;border-radius:14px;border:1.5px solid rgba(255,255,255,.25);background:rgba(255,255,255,.06);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s}
+.lightbox-close:hover{background:var(--signal);border-color:var(--signal)}
+.lightbox-close svg{width:22px;height:22px;stroke:#fff;stroke-width:2.5}
+.lightbox-close:hover svg{stroke:var(--ink)}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:1024px){
+  .hero-grid,.why-grid,.contact-grid{grid-template-columns:1fr;gap:50px}
+  .cards-grid{grid-template-columns:repeat(2,1fr)}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .hero-photo img{height:420px}
+  .why-photo .frame img{height:420px}
+  .hero{padding-top:130px}
+  .chip-1{left:-8px}
+  .chip-2{right:-8px}
+}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .burger{display:block}
+  .lang-switch.desktop{display:none}
+  .cards-grid{grid-template-columns:1fr}
+  .gallery-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:190px}
+  .hero-plate{width:88px;height:88px;top:-24px;left:-12px}
+  .hero h1{font-size:clamp(2.6rem,11vw,3.4rem)}
+  .review-card{width:320px}
+  .route::before{left:27px}
+  .step{grid-template-columns:56px 1fr;gap:18px}
+  .step .marker{width:56px;height:56px;font-size:1.2rem}
+  .exp-tag{left:12px;bottom:-22px;padding:16px 20px}
+  .exp-tag b{font-size:2rem}
+  .section-head{flex-direction:column;align-items:flex-start}
+  .hero-scroll{display:none}
+  .stat{padding:38px 14px}
+}
+@media(max-width:480px){
+  .gallery-grid{grid-template-columns:1fr;grid-auto-rows:230px}
+  .g-item.tall{grid-row:span 1}
+  .cta-panel{padding:38px 28px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  html{scroll-behavior:auto}
+  .stagger>*,.hero-visual,.reveal,.reveal-left,.reveal-right,.reveal-scale{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<div id="roadProgress"></div>
+
+<!-- ============ NAV ============ -->
+<header id="header">
+  <div class="container nav">
+    <a href="#home" class="brand" aria-label="Σχολή Οδηγών Τεννέ">
+      <svg class="plate" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="2" y="2" width="60" height="60" rx="13" fill="#FFC400"/>
+        <rect x="2" y="2" width="60" height="60" rx="13" fill="none" stroke="#191C21" stroke-width="3.5"/>
+        <text x="32" y="46.5" font-family="Arial Black, Arial, sans-serif" font-size="37" font-weight="900" text-anchor="middle" fill="#191C21">Σ</text>
+      </svg>
+      <span>
+        <span class="brand-name">Τεννέ</span>
+        <span class="brand-sub" data-i="brand_sub">Σχολή Οδηγών</span>
+      </span>
+    </a>
+    <nav class="nav-links" aria-label="Κύριο μενού">
+      <a href="#home" data-i="nav_home">Αρχική</a>
+      <a href="#diplomas" data-i="nav_lic">Διπλώματα</a>
+      <a href="#school" data-i="nav_school">Η Σχολή</a>
+      <a href="#gallery" data-i="nav_gallery">Γκαλερί</a>
+      <a href="#reviews" data-i="nav_reviews">Κριτικές</a>
+      <div class="lang-switch desktop" role="group" aria-label="Language">
+        <button class="lang-btn active" data-lang="el" type="button">
+          <svg viewBox="0 0 27 18" aria-hidden="true"><rect width="27" height="18" fill="#0D5EAF"/><path d="M0 2h27M0 6h27M0 10h27M0 14h27" stroke="#fff" stroke-width="2"/><rect width="10" height="10" fill="#0D5EAF"/><path d="M5 0v10M0 5h10" stroke="#fff" stroke-width="2"/></svg>
+          ΕΛ
+        </button>
+        <button class="lang-btn" data-lang="en" type="button">
+          <svg viewBox="0 0 27 18" aria-hidden="true"><rect width="27" height="18" fill="#012169"/><path d="M0 0l27 18M27 0L0 18" stroke="#fff" stroke-width="3.2"/><path d="M0 0l27 18M27 0L0 18" stroke="#C8102E" stroke-width="1.6"/><path d="M13.5 0v18M0 9h27" stroke="#fff" stroke-width="5.5"/><path d="M13.5 0v18M0 9h27" stroke="#C8102E" stroke-width="3.2"/></svg>
+          EN
+        </button>
+      </div>
+      <a href="#contact" class="nav-cta" data-i="nav_cta">Ξεκίνα Τώρα</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Άνοιγμα μενού" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <button class="mobile-close" id="mobileClose" aria-label="Κλείσιμο μενού">
+    <svg viewBox="0 0 24 24" fill="none"><path d="M5 5l14 14M19 5L5 19"/></svg>
+  </button>
+  <a href="#home" data-i="nav_home" style="transition-delay:.05s">Αρχική</a>
+  <a href="#diplomas" data-i="nav_lic" style="transition-delay:.1s">Διπλώματα</a>
+  <a href="#school" data-i="nav_school" style="transition-delay:.15s">Η Σχολή</a>
+  <a href="#gallery" data-i="nav_gallery" style="transition-delay:.2s">Γκαλερί</a>
+  <a href="#reviews" data-i="nav_reviews" style="transition-delay:.25s">Κριτικές</a>
+  <a href="#contact" data-i="nav_contact" style="transition-delay:.3s">Επικοινωνία</a>
+  <div class="mobile-lang">
+    <button class="lang-btn active" data-lang="el" type="button">
+      <svg viewBox="0 0 27 18" aria-hidden="true"><rect width="27" height="18" fill="#0D5EAF"/><path d="M0 2h27M0 6h27M0 10h27M0 14h27" stroke="#fff" stroke-width="2"/><rect width="10" height="10" fill="#0D5EAF"/><path d="M5 0v10M0 5h10" stroke="#fff" stroke-width="2"/></svg>
+      Ελληνικά
+    </button>
+    <button class="lang-btn" data-lang="en" type="button">
+      <svg viewBox="0 0 27 18" aria-hidden="true"><rect width="27" height="18" fill="#012169"/><path d="M0 0l27 18M27 0L0 18" stroke="#fff" stroke-width="3.2"/><path d="M0 0l27 18M27 0L0 18" stroke="#C8102E" stroke-width="1.6"/><path d="M13.5 0v18M0 9h27" stroke="#fff" stroke-width="5.5"/><path d="M13.5 0v18M0 9h27" stroke="#C8102E" stroke-width="3.2"/></svg>
+      English
+    </button>
+  </div>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="lane l1"></div>
+  <div class="lane l2"></div>
+  <div class="lane l3"></div>
+  <div class="container hero-grid">
+    <div class="hero-copy stagger">
+      <span class="eyebrow" data-i="hero_eyebrow">Σχολή Οδηγών · Τεννέ</span>
+      <h1>
+        <span data-i="hero_t1">Το δίπλωμα είναι η αρχή.</span>
+        <span class="stroke" data-i="hero_t2">Εμείς σε μαθαίνουμε να οδηγείς.</span>
+      </h1>
+      <p data-i="hero_p">Θεωρία που καταλαβαίνεις, πρακτική που σου μένει και εκπαιδευτές που ξέρουν πότε να μιλήσουν και πότε να σε αφήσουν στο τιμόνι. Στην Τεννέ δεν σε ετοιμάζουμε απλώς για την εξέταση — σε ετοιμάζουμε για τον δρόμο.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn btn-primary">
+          <span data-i="hero_cta1">Κλείσε το πρώτο μάθημα</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#diplomas" class="btn btn-ghost" data-i="hero_cta2">Δες τα διπλώματα</a>
+      </div>
+      <div class="hero-badges">
+        <div class="hero-badge">
+          <span class="dot"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <span data-i="hero_b1">Πιστοποιημένοι εκπαιδευτές</span>
+        </div>
+        <div class="hero-badge">
+          <span class="dot"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <span data-i="hero_b2">Σύγχρονος στόλος οχημάτων</span>
+        </div>
+        <div class="hero-badge">
+          <span class="dot"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <span data-i="hero_b3">Ευέλικτα ωράρια μαθημάτων</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <svg class="hero-plate" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="2" y="2" width="60" height="60" rx="13" fill="#FFC400"/>
+        <rect x="2" y="2" width="60" height="60" rx="13" fill="none" stroke="#191C21" stroke-width="3.5"/>
+        <text x="32" y="46.5" font-family="Arial Black, Arial, sans-serif" font-size="37" font-weight="900" text-anchor="middle" fill="#191C21">Σ</text>
+      </svg>
+      <figure class="hero-photo">
+        <img class="zoomable" src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=1400&auto=format&fit=crop" alt="Μάθημα οδήγησης στον ανοιχτό δρόμο" loading="eager">
+      </figure>
+      <div class="sign-chip chip-1">
+        <span class="cat">Β</span>
+        <span class="txt" data-i="chip1">Δίπλωμα αυτοκινήτου<small>από 17 ετών</small></span>
+      </div>
+      <div class="sign-chip chip-2">
+        <span class="cat">Α</span>
+        <span class="txt" data-i="chip2">Δίπλωμα μοτοσικλέτας<small>όλες οι κατηγορίες</small></span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll"><span data-i="scroll_hint">Κύλισε</span><span class="wheel"></span></div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="stats" aria-label="Στατιστικά σχολής">
+  <div class="stats-grid container">
+    <div class="stat reveal"><b><span class="counter" data-target="25">0</span>+</b><span data-i="stat1">Χρόνια εμπειρίας</span></div>
+    <div class="stat reveal" data-delay="1"><b><span class="counter" data-target="4200">0</span>+</b><span data-i="stat2">Επιτυχημένοι οδηγοί</span></div>
+    <div class="stat reveal" data-delay="2"><b><span class="counter" data-target="96">0</span>%</b><span data-i="stat3">Επιτυχία στην πρώτη εξέταση</span></div>
+    <div class="stat reveal" data-delay="3"><b><span class="counter" data-target="12">0</span></b><span data-i="stat4">Οχήματα εκπαίδευσης</span></div>
+  </div>
+</section>
+
+<!-- ============ LICENSES ============ -->
+<section class="licenses" id="diplomas">
+  <div class="container">
+    <div class="section-head">
+      <div class="reveal">
+        <span class="eyebrow" data-i="lic_eyebrow">Κατηγορίες Διπλωμάτων</span>
+        <h2 class="section-title"><span data-i="lic_t1">Κάθε δρόμος</span> <em data-i="lic_t2">ξεκινά εδώ</em></h2>
+      </div>
+      <p class="lead reveal" data-delay="1" data-i="lic_lead">Από το πρώτο μοτοποδήλατο μέχρι το επαγγελματικό δίπλωμα — αναλαμβάνουμε όλη τη διαδικασία, από τα δικαιολογητικά μέχρι την ημέρα της εξέτασης.</p>
+    </div>
+    <div class="cards-grid">
+      <article class="lcard reveal">
+        <span class="cat-plate">Β</span>
+        <h3 data-i="c1_t">Αυτοκίνητο</h3>
+        <p data-i="c1_p">Το πιο δημοφιλές δίπλωμα, από τα 17. Θεωρητικά μαθήματα με απλή γλώσσα και πρακτική σε πραγματικές συνθήκες πόλης και εθνικής οδού.</p>
+        <ul class="tags">
+          <li data-i="c1_tag1">Από 17 ετών</li>
+          <li data-i="c1_tag2">Χειροκίνητο & αυτόματο</li>
+        </ul>
+      </article>
+      <article class="lcard reveal" data-delay="1">
+        <span class="cat-plate">Α</span>
+        <h3 data-i="c2_t">Μοτοσικλέτα</h3>
+        <p data-i="c2_p">Κατηγορίες ΑΜ, Α1, Α2 και Α. Εκπαίδευση με έμφαση στην ισορροπία, την αναγνώριση κινδύνου και την ασφαλή οδήγηση στην πόλη.</p>
+        <ul class="tags">
+          <li>AM · A1 · A2 · A</li>
+          <li data-i="c2_tag2">Εξοπλισμός σχολής</li>
+        </ul>
+      </article>
+      <article class="lcard reveal" data-delay="2">
+        <span class="cat-plate">ΠΕΙ</span>
+        <h3 data-i="c3_t">Επαγγελματικά</h3>
+        <p data-i="c3_p">Πιστοποιητικό Επαγγελματικής Ικανότητας για οδηγούς φορτηγών και λεωφορείων. Αρχική επιμόρφωση και περιοδική κατάρτιση.</p>
+        <ul class="tags">
+          <li data-i="c3_tag1">Κατηγορίες Γ & Δ</li>
+          <li data-i="c3_tag2">Περιοδική κατάρτιση</li>
+        </ul>
+      </article>
+      <article class="lcard reveal" data-delay="1">
+        <span class="cat-plate">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v6h-6"/></svg>
+        </span>
+        <h3 data-i="c4_t">Ανανέωση Διπλώματος</h3>
+        <p data-i="c4_p">Ανανέωση λόγω λήξης ή ορίου ηλικίας, χωρίς ταλαιπωρία. Εμείς τρέχουμε τα χαρτιά, εσύ απλώς υπογράφεις.</p>
+        <ul class="tags">
+          <li data-i="c4_tag1">Γρήγορη διεκπεραίωση</li>
+          <li data-i="c4_tag2">Ιατρικά ραντεβού</li>
+        </ul>
+      </article>
+      <article class="lcard reveal" data-delay="2">
+        <span class="cat-plate">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3.5 9h17M3.5 15h17M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
+        </span>
+        <h3 data-i="c5_t">Διεθνές Δίπλωμα</h3>
+        <p data-i="c5_p">Έκδοση διεθνούς άδειας οδήγησης και μετατροπή ξένων διπλωμάτων σε ελληνικά, με πλήρη καθοδήγηση στη διαδικασία.</p>
+        <ul class="tags">
+          <li data-i="c5_tag1">Έκδοση & μετατροπή</li>
+          <li data-i="c5_tag2">Πλήρης υποστήριξη</li>
+        </ul>
+      </article>
+      <article class="lcard reveal" data-delay="3">
+        <span class="cat-plate">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7l8-4z"/><path d="M9 12l2 2 4-4"/></svg>
+        </span>
+        <h3 data-i="c6_t">Ειδικά Μαθήματα</h3>
+        <p data-i="c6_p">Μαθήματα εξοικείωσης για κατόχους διπλώματος που έχουν χρόνια να οδηγήσουν, οδήγηση σε εθνική οδό και παρκάρισμα στην πόλη.</p>
+        <ul class="tags">
+          <li data-i="c6_tag1">Εξατομικευμένο πρόγραμμα</li>
+          <li data-i="c6_tag2">Χωρίς άγχος</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY ============ -->
+<section class="why" id="school">
+  <div class="lane l1"></div>
+  <div class="lane l3"></div>
+  <div class="container why-grid">
+    <div class="why-photo reveal-left">
+      <figure class="frame">
+        <img class="zoomable" src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=1400&auto=format&fit=crop" alt="Ανοιχτός δρόμος από τη θέση του οδηγού" loading="lazy">
+      </figure>
+      <div class="exp-tag">
+        <b><span class="counter" data-target="25">0</span>+</b>
+        <span data-i="exp_tag">Χρόνια στο τιμόνι</span>
+      </div>
+    </div>
+    <div class="reveal-right">
+      <span class="eyebrow" data-i="why_eyebrow">Γιατί Τεννέ</span>
+      <h2 class="section-title"><span data-i="why_t1">Οδηγούς φτιάχνουμε,</span> <em data-i="why_t2">όχι απλώς διπλώματα</em></h2>
+      <p class="lead" data-i="why_lead">Ο στόχος μας δεν είναι να «περάσεις». Είναι να μπεις σε οποιοδήποτε αυτοκίνητο, σε οποιονδήποτε δρόμο, και να νιώθεις σιγουριά.</p>
+      <div class="feature-list">
+        <div class="feature reveal" data-delay="1">
+          <span class="f-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6"/></svg></span>
+          <div>
+            <h3 data-i="f1_t">Εκπαιδευτές με υπομονή</h3>
+            <p data-i="f1_p">Κάθε μαθητής έχει τον δικό του ρυθμό. Οι εκπαιδευτές μας εξηγούν ξανά, χωρίς εκνευρισμό και χωρίς φωνές — πάντα.</p>
+          </div>
+        </div>
+        <div class="feature reveal" data-delay="2">
+          <span class="f-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3M7 9h6M7 12h10"/></svg></span>
+          <div>
+            <h3 data-i="f2_t">Θεωρία που βγάζει νόημα</h3>
+            <p data-i="f2_p">Σύγχρονη αίθουσα, οπτικοακουστικό υλικό και απεριόριστα τεστ προσομοίωσης μέχρι να πηγαίνεις στην εξέταση με άνεση.</p>
+          </div>
+        </div>
+        <div class="feature reveal" data-delay="3">
+          <span class="f-icon"><svg viewBox="0 0 24 24"><path d="M5 17h14l-1.5-5.5a2 2 0 0 0-1.9-1.5H8.4a2 2 0 0 0-1.9 1.5L5 17z"/><circle cx="7.5" cy="17" r="2"/><circle cx="16.5" cy="17" r="2"/><path d="M8 10V7h8v3"/></svg></span>
+          <div>
+            <h3 data-i="f3_t">Οχήματα τελευταίας γενιάς</h3>
+            <p data-i="f3_p">Καθαρά, ασφαλή και τακτικά συντηρημένα αυτοκίνητα και μοτοσικλέτες — ίδια με αυτά που θα οδηγήσεις στην εξέταση.</p>
+          </div>
+        </div>
+        <div class="feature reveal" data-delay="4">
+          <span class="f-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span>
+          <div>
+            <h3 data-i="f4_t">Ωράρια που σε βολεύουν</h3>
+            <p data-i="f4_p">Μαθήματα πρωί, απόγευμα ή Σάββατο, με παραλαβή από το σπίτι ή τη δουλειά σου όπου είναι εφικτό.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="process">
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow" data-i="pr_eyebrow">Η Διαδρομή</span>
+      <h2 class="section-title"><span data-i="pr_t1">Από την εγγραφή</span> <em data-i="pr_t2">στο δίπλωμα</em></h2>
+      <p class="lead" data-i="pr_lead">Τέσσερα βήματα, καμία γραφειοκρατική ταλαιπωρία για σένα. Αναλαμβάνουμε εμείς όλα τα ενδιάμεσα.</p>
+    </div>
+    <div class="route">
+      <div class="step reveal-left">
+        <span class="marker">1</span>
+        <div class="step-body">
+          <h3 data-i="s1_t">Εγγραφή & Δικαιολογητικά</h3>
+          <p data-i="s1_p">Έρχεσαι με ταυτότητα και φωτογραφίες — τα υπόλοιπα τα τακτοποιούμε εμείς: αιτήσεις, παράβολα, ιατρικές εξετάσεις.</p>
+        </div>
+      </div>
+      <div class="step reveal-left" data-delay="1">
+        <span class="marker">2</span>
+        <div class="step-body">
+          <h3 data-i="s2_t">Θεωρητικά Μαθήματα</h3>
+          <p data-i="s2_p">Μαθήματα ΚΟΚ στη σύγχρονη αίθουσά μας και απεριόριστη εξάσκηση σε τεστ προσομοίωσης, μέχρι να νιώσεις έτοιμος.</p>
+        </div>
+      </div>
+      <div class="step reveal-left" data-delay="2">
+        <span class="marker">3</span>
+        <div class="step-body">
+          <h3 data-i="s3_t">Πρακτικά Μαθήματα</h3>
+          <p data-i="s3_p">Οδηγείς σε πραγματικές συνθήκες: κίνηση, παρκάρισμα, ανηφόρες, εθνική οδό. Με εκπαιδευτή δίπλα σου σε κάθε στροφή.</p>
+        </div>
+      </div>
+      <div class="step reveal-left" data-delay="3">
+        <span class="marker">4</span>
+        <div class="step-body">
+          <h3 data-i="s4_t">Εξετάσεις & Δίπλωμα</h3>
+          <p data-i="s4_p">Πηγαίνεις στην εξέταση προετοιμασμένος και με το όχημα που ήδη ξέρεις. Και μετά; Ο δρόμος είναι δικός σου.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="section-head">
+      <div class="reveal">
+        <span class="eyebrow" data-i="g_eyebrow">Γκαλερί</span>
+        <h2 class="section-title"><span data-i="g_t1">Ζωή</span> <em data-i="g_t2">στον δρόμο</em></h2>
+      </div>
+      <p class="lead reveal" data-delay="1" data-i="g_lead">Στιγμές από μαθήματα, διαδρομές και την καθημερινότητα της σχολής. Πάτησε σε οποιαδήποτε φωτογραφία για να τη δεις σε πλήρες μέγεθος.</p>
+    </div>
+    <div class="gallery-grid">
+      <figure class="g-item tall reveal-scale"><img class="zoomable" src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1200&auto=format&fit=crop" alt="Πρακτικό μάθημα οδήγησης" loading="lazy"></figure>
+      <figure class="g-item reveal-scale" data-delay="1"><img class="zoomable" src="https://images.unsplash.com/photo-1449034446853-66c86144b0ad?q=80&w=1200&auto=format&fit=crop" alt="Οδήγηση στην πόλη το σούρουπο" loading="lazy"></figure>
+      <figure class="g-item reveal-scale" data-delay="2"><img class="zoomable" src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?q=80&w=1200&auto=format&fit=crop" alt="Εκπαίδευση μοτοσικλέτας" loading="lazy"></figure>
+      <figure class="g-item reveal-scale" data-delay="1"><img class="zoomable" src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=1200&auto=format&fit=crop" alt="Εκπαιδευτικό όχημα της σχολής" loading="lazy"></figure>
+      <figure class="g-item reveal-scale" data-delay="2"><img class="zoomable" src="https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=1200&auto=format&fit=crop" alt="Οδήγηση στο ηλιοβασίλεμα" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REVIEWS ============ -->
+<section class="reviews" id="reviews">
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow" data-i="r_eyebrow">Κριτικές</span>
+      <h2 class="section-title"><span data-i="r_t1">Τι λένε</span> <em data-i="r_t2">οι οδηγοί μας</em></h2>
+    </div>
+  </div>
+  <div class="marquee" id="marquee">
+    <article class="review-card">
+      <div class="stars">★★★★★</div>
+      <p data-i="rv1_p">«Είχα τρομερό άγχος με την οδήγηση και το ανέφερα από την πρώτη μέρα. Ο εκπαιδευτής μου το σεβάστηκε απόλυτα και πήγαμε με τον δικό μου ρυθμό. Πέρασα με τη μία.»</p>
+      <div class="who"><span class="avatar">ΜΚ</span><div><b data-i="rv1_n">Μαρία Κ.</b><span data-i="rv1_r">Δίπλωμα Β΄ κατηγορίας</span></div></div>
+    </article>
+    <article class="review-card">
+      <div class="stars">★★★★★</div>
+      <p data-i="rv2_p">«Έκανα τη μετατροπή του διπλώματός μου από το εξωτερικό και δεν χρειάστηκε να πάω πουθενά μόνος μου. Τα κανόνισαν όλα εκείνοι. Επαγγελματίες.»</p>
+      <div class="who"><span class="avatar">ΓΠ</span><div><b data-i="rv2_n">Γιώργος Π.</b><span data-i="rv2_r">Μετατροπή διπλώματος</span></div></div>
+    </article>
+    <article class="review-card">
+      <div class="stars">★★★★★</div>
+      <p data-i="rv3_p">«Πήρα το δίπλωμα μηχανής στην Τεννέ και το συστήνω ανεπιφύλακτα. Σε μαθαίνουν να οδηγείς αμυντικά, όχι απλώς να περνάς πόρτες στην εξέταση.»</p>
+      <div class="who"><span class="avatar">ΝΔ</span><div><b data-i="rv3_n">Νίκος Δ.</b><span data-i="rv3_r">Δίπλωμα Α΄ κατηγορίας</span></div></div>
+    </article>
+    <article class="review-card">
+      <div class="stars">★★★★★</div>
+      <p data-i="rv4_p">«Το παιδί μου έβγαλε το δίπλωμα εδώ και τώρα γράφτηκα κι εγώ για μαθήματα εξοικείωσης μετά από χρόνια χωρίς τιμόνι. Άψογη αντιμετώπιση και στους δύο.»</p>
+      <div class="who"><span class="avatar">ΕΣ</span><div><b data-i="rv4_n">Ελένη Σ.</b><span data-i="rv4_r">Μαθήματα εξοικείωσης</span></div></div>
+    </article>
+    <article class="review-card">
+      <div class="stars">★★★★★</div>
+      <p data-i="rv5_p">«Δούλευα βάρδιες και νόμιζα ότι δεν θα βρίσκαμε ποτέ ώρες. Έβαλαν τα μαθήματα γύρω από το πρόγραμμά μου, ακόμα και Σάββατα. Τεράστιο ευχαριστώ.»</p>
+      <div class="who"><span class="avatar">ΚΑ</span><div><b data-i="rv5_n">Κώστας Α.</b><span data-i="rv5_r">Δίπλωμα Β΄ κατηγορίας</span></div></div>
+    </article>
+    <article class="review-card">
+      <div class="stars">★★★★★</div>
+      <p data-i="rv6_p">«Η θεωρία με τρόμαζε περισσότερο από την πρακτική. Με τα τεστ προσομοίωσης και τις εξηγήσεις στην αίθουσα, πήγα στην εξέταση σαν να έγραφα διαγώνισμα που είχα ήδη λύσει.»</p>
+      <div class="who"><span class="avatar">ΑΤ</span><div><b data-i="rv6_n">Άννα Τ.</b><span data-i="rv6_r">Δίπλωμα Β΄ κατηγορίας</span></div></div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:3.4rem">
+      <span class="eyebrow" data-i="ct_eyebrow">Επικοινωνία</span>
+      <h2 class="section-title"><span data-i="ct_t1">Έτοιμος να</span> <em data-i="ct_t2">πάρεις το τιμόνι;</em></h2>
+    </div>
+    <div class="contact-grid">
+      <div class="reveal-left">
+        <a href="tel:+302101234567" class="contact-card">
+          <span class="c-icon"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg></span>
+          <div><h3 data-i="ct_phone">Τηλέφωνο</h3><p>210 12 34 567</p></div>
+        </a>
+        <a href="mailto:info@tenne.gr" class="contact-card">
+          <span class="c-icon"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg></span>
+          <div><h3>Email</h3><p>info@tenne.gr</p></div>
+        </a>
+        <div class="contact-card">
+          <span class="c-icon"><svg viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <div><h3 data-i="ct_addr">Διεύθυνση</h3><p data-i="ct_addr_v">Λεωφόρος Παράδειγμα 12, Αθήνα</p></div>
+        </div>
+        <div class="contact-card">
+          <span class="c-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span>
+          <div><h3 data-i="ct_hours">Ωράριο</h3><p data-i="ct_hours_v">Δευτέρα – Παρασκευή 09:00–21:00 · Σάββατο 10:00–14:00</p></div>
+        </div>
+      </div>
+      <div class="cta-panel reveal-right">
+        <h3><span data-i="cta_t1">Το πρώτο μάθημα</span> <em data-i="cta_t2">ξεκινά με ένα τηλεφώνημα.</em></h3>
+        <p data-i="cta_p">Πες μας τι δίπλωμα σε ενδιαφέρει και θα σου εξηγήσουμε βήμα-βήμα τη διαδικασία, το κόστος και το πρόγραμμα — χωρίς καμία δέσμευση.</p>
+        <a href="tel:+302101234567" class="btn btn-primary">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg>
+          <span data-i="cta_btn">Κάλεσέ μας τώρα</span>
+        </a>
+        <ul class="hours">
+          <li><span data-i="h1">Δευτέρα – Παρασκευή</span><b>09:00 – 21:00</b></li>
+          <li><span data-i="h2">Σάββατο</span><b>10:00 – 14:00</b></li>
+          <li><span data-i="h3">Κυριακή</span><b data-i="h3_v">Κλειστά</b></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <a href="#home" class="brand">
+        <svg class="plate" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width:40px;height:40px;flex:0 0 40px">
+          <rect x="2" y="2" width="60" height="60" rx="13" fill="#FFC400"/>
+          <rect x="2" y="2" width="60" height="60" rx="13" fill="none" stroke="#191C21" stroke-width="3.5"/>
+          <text x="32" y="46.5" font-family="Arial Black, Arial, sans-serif" font-size="37" font-weight="900" text-anchor="middle" fill="#191C21">Σ</text>
+        </svg>
+        <span>
+          <span class="brand-name">Τεννέ</span>
+          <span class="brand-sub" data-i="brand_sub2">Σχολή Οδηγών</span>
+        </span>
+      </a>
+      <nav class="footer-nav" aria-label="Μενού υποσέλιδου">
+        <a href="#home" data-i="nav_home">Αρχική</a>
+        <a href="#diplomas" data-i="nav_lic">Διπλώματα</a>
+        <a href="#school" data-i="nav_school">Η Σχολή</a>
+        <a href="#gallery" data-i="nav_gallery">Γκαλερί</a>
+        <a href="#contact" data-i="nav_contact">Επικοινωνία</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span data-i="copyright">© 2026 Σχολή Οδηγών Τεννέ. Με επιφύλαξη παντός δικαιώματος.</span>
+      <span><span data-i="credit">Κατασκευή ιστοσελίδας από</span> <a href="https://advonmedia.com" target="_blank" rel="noopener">Advon Media</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ LIGHTBOX ============ -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Προβολή εικόνας">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Κλείσιμο">
+    <svg viewBox="0 0 24 24" fill="none"><path d="M5 5l14 14M19 5L5 19"/></svg>
+  </button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+<script>
+(function(){
+"use strict";
+
+/* ============ i18n ============ */
+var I18N = {
+  el: {
+    brand_sub:"Σχολή Οδηγών", brand_sub2:"Σχολή Οδηγών",
+    nav_home:"Αρχική", nav_lic:"Διπλώματα", nav_school:"Η Σχολή", nav_gallery:"Γκαλερί", nav_reviews:"Κριτικές", nav_contact:"Επικοινωνία", nav_cta:"Ξεκίνα Τώρα",
+    hero_eyebrow:"Σχολή Οδηγών · Τεννέ",
+    hero_t1:"Το δίπλωμα είναι η αρχή.",
+    hero_t2:"Εμείς σε μαθαίνουμε να οδηγείς.",
+    hero_p:"Θεωρία που καταλαβαίνεις, πρακτική που σου μένει και εκπαιδευτές που ξέρουν πότε να μιλήσουν και πότε να σε αφήσουν στο τιμόνι. Στην Τεννέ δεν σε ετοιμάζουμε απλώς για την εξέταση — σε ετοιμάζουμε για τον δρόμο.",
+    hero_cta1:"Κλείσε το πρώτο μάθημα", hero_cta2:"Δες τα διπλώματα",
+    hero_b1:"Πιστοποιημένοι εκπαιδευτές", hero_b2:"Σύγχρονος στόλος οχημάτων", hero_b3:"Ευέλικτα ωράρια μαθημάτων",
+    chip1:"Δίπλωμα αυτοκινήτου<small>από 17 ετών</small>", chip2:"Δίπλωμα μοτοσικλέτας<small>όλες οι κατηγορίες</small>",
+    scroll_hint:"Κύλισε",
+    stat1:"Χρόνια εμπειρίας", stat2:"Επιτυχημένοι οδηγοί", stat3:"Επιτυχία στην πρώτη εξέταση", stat4:"Οχήματα εκπαίδευσης",
+    lic_eyebrow:"Κατηγορίες Διπλωμάτων", lic_t1:"Κάθε δρόμος", lic_t2:"ξεκινά εδώ",
+    lic_lead:"Από το πρώτο μοτοποδήλατο μέχρι το επαγγελματικό δίπλωμα — αναλαμβάνουμε όλη τη διαδικασία, από τα δικαιολογητικά μέχρι την ημέρα της εξέτασης.",
+    c1_t:"Αυτοκίνητο", c1_p:"Το πιο δημοφιλές δίπλωμα, από τα 17. Θεωρητικά μαθήματα με απλή γλώσσα και πρακτική σε πραγματικές συνθήκες πόλης και εθνικής οδού.", c1_tag1:"Από 17 ετών", c1_tag2:"Χειροκίνητο & αυτόματο",
+    c2_t:"Μοτοσικλέτα", c2_p:"Κατηγορίες ΑΜ, Α1, Α2 και Α. Εκπαίδευση με έμφαση στην ισορροπία, την αναγνώριση κινδύνου και την ασφαλή οδήγηση στην πόλη.", c2_tag2:"Εξοπλισμός σχολής",
+    c3_t:"Επαγγελματικά", c3_p:"Πιστοποιητικό Επαγγελματικής Ικανότητας για οδηγούς φορτηγών και λεωφορείων. Αρχική επιμόρφωση και περιοδική κατάρτιση.", c3_tag1:"Κατηγορίες Γ & Δ", c3_tag2:"Περιοδική κατάρτιση",
+    c4_t:"Ανανέωση Διπλώματος", c4_p:"Ανανέωση λόγω λήξης ή ορίου ηλικίας, χωρίς ταλαιπωρία. Εμείς τρέχουμε τα χαρτιά, εσύ απλώς υπογράφεις.", c4_tag1:"Γρήγορη διεκπεραίωση", c4_tag2:"Ιατρικά ραντεβού",
+    c5_t:"Διεθνές Δίπλωμα", c5_p:"Έκδοση διεθνούς άδειας οδήγησης και μετατροπή ξένων διπλωμάτων σε ελληνικά, με πλήρη καθοδήγηση στη διαδικασία.", c5_tag1:"Έκδοση & μετατροπή", c5_tag2:"Πλήρης υποστήριξη",
+    c6_t:"Ειδικά Μαθήματα", c6_p:"Μαθήματα εξοικείωσης για κατόχους διπλώματος που έχουν χρόνια να οδηγήσουν, οδήγηση σε εθνική οδό και παρκάρισμα στην πόλη.", c6_tag1:"Εξατομικευμένο πρόγραμμα", c6_tag2:"Χωρίς άγχος",
+    exp_tag:"Χρόνια στο τιμόνι",
+    why_eyebrow:"Γιατί Τεννέ", why_t1:"Οδηγούς φτιάχνουμε,", why_t2:"όχι απλώς διπλώματα",
+    why_lead:"Ο στόχος μας δεν είναι να «περάσεις». Είναι να μπεις σε οποιοδήποτε αυτοκίνητο, σε οποιονδήποτε δρόμο, και να νιώθεις σιγουριά.",
+    f1_t:"Εκπαιδευτές με υπομονή", f1_p:"Κάθε μαθητής έχει τον δικό του ρυθμό. Οι εκπαιδευτές μας εξηγούν ξανά, χωρίς εκνευρισμό και χωρίς φωνές — πάντα.",
+    f2_t:"Θεωρία που βγάζει νόημα", f2_p:"Σύγχρονη αίθουσα, οπτικοακουστικό υλικό και απεριόριστα τεστ προσομοίωσης μέχρι να πηγαίνεις στην εξέταση με άνεση.",
+    f3_t:"Οχήματα τελευταίας γενιάς", f3_p:"Καθαρά, ασφαλή και τακτικά συντηρημένα αυτοκίνητα και μοτοσικλέτες — ίδια με αυτά που θα οδηγήσεις στην εξέταση.",
+    f4_t:"Ωράρια που σε βολεύουν", f4_p:"Μαθήματα πρωί, απόγευμα ή Σάββατο, με παραλαβή από το σπίτι ή τη δουλειά σου όπου είναι εφικτό.",
+    pr_eyebrow:"Η Διαδρομή", pr_t1:"Από την εγγραφή", pr_t2:"στο δίπλωμα",
+    pr_lead:"Τέσσερα βήματα, καμία γραφειοκρατική ταλαιπωρία για σένα. Αναλαμβάνουμε εμείς όλα τα ενδιάμεσα.",
+    s1_t:"Εγγραφή & Δικαιολογητικά", s1_p:"Έρχεσαι με ταυτότητα και φωτογραφίες — τα υπόλοιπα τα τακτοποιούμε εμείς: αιτήσεις, παράβολα, ιατρικές εξετάσεις.",
+    s2_t:"Θεωρητικά Μαθήματα", s2_p:"Μαθήματα ΚΟΚ στη σύγχρονη αίθουσά μας και απεριόριστη εξάσκηση σε τεστ προσομοίωσης, μέχρι να νιώσεις έτοιμος.",
+    s3_t:"Πρακτικά Μαθήματα", s3_p:"Οδηγείς σε πραγματικές συνθήκες: κίνηση, παρκάρισμα, ανηφόρες, εθνική οδό. Με εκπαιδευτή δίπλα σου σε κάθε στροφή.",
+    s4_t:"Εξετάσεις & Δίπλωμα", s4_p:"Πηγαίνεις στην εξέταση προετοιμασμένος και με το όχημα που ήδη ξέρεις. Και μετά; Ο δρόμος είναι δικός σου.",
+    g_eyebrow:"Γκαλερί", g_t1:"Ζωή", g_t2:"στον δρόμο",
+    g_lead:"Στιγμές από μαθήματα, διαδρομές και την καθημερινότητα της σχολής. Πάτησε σε οποιαδήποτε φωτογραφία για να τη δεις σε πλήρες μέγεθος.",
+    r_eyebrow:"Κριτικές", r_t1:"Τι λένε", r_t2:"οι οδηγοί μας",
+    rv1_p:"«Είχα τρομερό άγχος με την οδήγηση και το ανέφερα από την πρώτη μέρα. Ο εκπαιδευτής μου το σεβάστηκε απόλυτα και πήγαμε με τον δικό μου ρυθμό. Πέρασα με τη μία.»", rv1_n:"Μαρία Κ.", rv1_r:"Δίπλωμα Β΄ κατηγορίας",
+    rv2_p:"«Έκανα τη μετατροπή του διπλώματός μου από το εξωτερικό και δεν χρειάστηκε να πάω πουθενά μόνος μου. Τα κανόνισαν όλα εκείνοι. Επαγγελματίες.»", rv2_n:"Γιώργος Π.", rv2_r:"Μετατροπή διπλώματος",
+    rv3_p:"«Πήρα το δίπλωμα μηχανής στην Τεννέ και το συστήνω ανεπιφύλακτα. Σε μαθαίνουν να οδηγείς αμυντικά, όχι απλώς να περνάς πόρτες στην εξέταση.»", rv3_n:"Νίκος Δ.", rv3_r:"Δίπλωμα Α΄ κατηγορίας",
+    rv4_p:"«Το παιδί μου έβγαλε το δίπλωμα εδώ και τώρα γράφτηκα κι εγώ για μαθήματα εξοικείωσης μετά από χρόνια χωρίς τιμόνι. Άψογη αντιμετώπιση και στους δύο.»", rv4_n:"Ελένη Σ.", rv4_r:"Μαθήματα εξοικείωσης",
+    rv5_p:"«Δούλευα βάρδιες και νόμιζα ότι δεν θα βρίσκαμε ποτέ ώρες. Έβαλαν τα μαθήματα γύρω από το πρόγραμμά μου, ακόμα και Σάββατα. Τεράστιο ευχαριστώ.»", rv5_n:"Κώστας Α.", rv5_r:"Δίπλωμα Β΄ κατηγορίας",
+    rv6_p:"«Η θεωρία με τρόμαζε περισσότερο από την πρακτική. Με τα τεστ προσομοίωσης και τις εξηγήσεις στην αίθουσα, πήγα στην εξέταση σαν να έγραφα διαγώνισμα που είχα ήδη λύσει.»", rv6_n:"Άννα Τ.", rv6_r:"Δίπλωμα Β΄ κατηγορίας",
+    ct_eyebrow:"Επικοινωνία", ct_t1:"Έτοιμος να", ct_t2:"πάρεις το τιμόνι;",
+    ct_phone:"Τηλέφωνο", ct_addr:"Διεύθυνση", ct_addr_v:"Λεωφόρος Παράδειγμα 12, Αθήνα",
+    ct_hours:"Ωράριο", ct_hours_v:"Δευτέρα – Παρασκευή 09:00–21:00 · Σάββατο 10:00–14:00",
+    cta_t1:"Το πρώτο μάθημα", cta_t2:"ξεκινά με ένα τηλεφώνημα.",
+    cta_p:"Πες μας τι δίπλωμα σε ενδιαφέρει και θα σου εξηγήσουμε βήμα-βήμα τη διαδικασία, το κόστος και το πρόγραμμα — χωρίς καμία δέσμευση.",
+    cta_btn:"Κάλεσέ μας τώρα",
+    h1:"Δευτέρα – Παρασκευή", h2:"Σάββατο", h3:"Κυριακή", h3_v:"Κλειστά",
+    copyright:"© 2026 Σχολή Οδηγών Τεννέ. Με επιφύλαξη παντός δικαιώματος.",
+    credit:"Κατασκευή ιστοσελίδας από"
+  },
+  en: {
+    brand_sub:"Driving School", brand_sub2:"Driving School",
+    nav_home:"Home", nav_lic:"Licences", nav_school:"The School", nav_gallery:"Gallery", nav_reviews:"Reviews", nav_contact:"Contact", nav_cta:"Start Now",
+    hero_eyebrow:"Driving School · Tenné",
+    hero_t1:"The licence is the beginning.",
+    hero_t2:"We teach you how to drive.",
+    hero_p:"Theory that makes sense, practice that stays with you, and instructors who know when to speak and when to let you take the wheel. At Tenné we don't just prepare you for the exam — we prepare you for the road.",
+    hero_cta1:"Book your first lesson", hero_cta2:"See our licences",
+    hero_b1:"Certified instructors", hero_b2:"Modern vehicle fleet", hero_b3:"Flexible lesson hours",
+    chip1:"Car licence<small>from age 17</small>", chip2:"Motorcycle licence<small>all categories</small>",
+    scroll_hint:"Scroll",
+    stat1:"Years of experience", stat2:"Successful drivers", stat3:"First-attempt pass rate", stat4:"Training vehicles",
+    lic_eyebrow:"Licence Categories", lic_t1:"Every road", lic_t2:"starts here",
+    lic_lead:"From your first moped to a professional licence — we handle the entire process, from paperwork to exam day.",
+    c1_t:"Car", c1_p:"The most popular licence, from age 17. Theory lessons in plain language and practice in real city and highway conditions.", c1_tag1:"From age 17", c1_tag2:"Manual & automatic",
+    c2_t:"Motorcycle", c2_p:"Categories AM, A1, A2 and A. Training focused on balance, hazard awareness and safe riding in city traffic.", c2_tag2:"Gear provided",
+    c3_t:"Professional", c3_p:"Certificate of Professional Competence (CPC) for truck and bus drivers. Initial qualification and periodic training.", c3_tag1:"Categories C & D", c3_tag2:"Periodic training",
+    c4_t:"Licence Renewal", c4_p:"Renewal due to expiry or age limit, hassle-free. We run the paperwork — you just sign.", c4_tag1:"Fast processing", c4_tag2:"Medical appointments",
+    c5_t:"International Licence", c5_p:"Issuing of international driving permits and conversion of foreign licences to Greek ones, with full guidance throughout.", c5_tag1:"Issuing & conversion", c5_tag2:"Full support",
+    c6_t:"Special Lessons", c6_p:"Refresher lessons for licence holders who haven't driven in years, highway driving practice and city parking skills.", c6_tag1:"Personalised programme", c6_tag2:"Stress-free",
+    exp_tag:"Years behind the wheel",
+    why_eyebrow:"Why Tenné", why_t1:"We build drivers,", why_t2:"not just licences",
+    why_lead:"Our goal isn't just for you to \"pass\". It's for you to get into any car, on any road, and feel confident.",
+    f1_t:"Patient instructors", f1_p:"Every student has their own pace. Our instructors explain again and again — calmly, without raised voices. Always.",
+    f2_t:"Theory that makes sense", f2_p:"A modern classroom, audiovisual material and unlimited mock tests until you walk into the exam feeling at ease.",
+    f3_t:"Latest-generation vehicles", f3_p:"Clean, safe and regularly serviced cars and motorcycles — the same ones you'll drive on exam day.",
+    f4_t:"Hours that suit you", f4_p:"Morning, afternoon or Saturday lessons, with pick-up from your home or workplace where possible.",
+    pr_eyebrow:"The Route", pr_t1:"From enrolment", pr_t2:"to your licence",
+    pr_lead:"Four steps, zero bureaucratic hassle for you. We take care of everything in between.",
+    s1_t:"Enrolment & Paperwork", s1_p:"You come with your ID and photos — we handle the rest: applications, fees, medical examinations.",
+    s2_t:"Theory Lessons", s2_p:"Traffic-code lessons in our modern classroom and unlimited practice on mock tests, until you feel ready.",
+    s3_t:"Practical Lessons", s3_p:"You drive in real conditions: traffic, parking, hill starts, the highway. With an instructor beside you at every turn.",
+    s4_t:"Exams & Licence", s4_p:"You take the exam well prepared, in the vehicle you already know. And after that? The road is yours.",
+    g_eyebrow:"Gallery", g_t1:"Life", g_t2:"on the road",
+    g_lead:"Moments from lessons, routes and everyday life at the school. Click any photo to view it in full size.",
+    r_eyebrow:"Reviews", r_t1:"What our", r_t2:"drivers say",
+    rv1_p:"\"I was terrified of driving and mentioned it on day one. My instructor fully respected that and we went at my own pace. I passed on my first attempt.\"", rv1_n:"Maria K.", rv1_r:"Category B licence",
+    rv2_p:"\"I converted my foreign licence and didn't have to go anywhere on my own. They arranged everything. True professionals.\"", rv2_n:"Giorgos P.", rv2_r:"Licence conversion",
+    rv3_p:"\"I got my motorcycle licence at Tenné and recommend them without hesitation. They teach you to ride defensively, not just to pass the exam.\"", rv3_n:"Nikos D.", rv3_r:"Category A licence",
+    rv4_p:"\"My son got his licence here and now I've signed up too, for refresher lessons after years away from the wheel. Excellent treatment for both of us.\"", rv4_n:"Eleni S.", rv4_r:"Refresher lessons",
+    rv5_p:"\"I worked shifts and thought we'd never find the hours. They built the lessons around my schedule, even on Saturdays. A huge thank you.\"", rv5_n:"Kostas A.", rv5_r:"Category B licence",
+    rv6_p:"\"Theory scared me more than the practical. With the mock tests and the classroom explanations, I went into the exam like it was a test I'd already solved.\"", rv6_n:"Anna T.", rv6_r:"Category B licence",
+    ct_eyebrow:"Contact", ct_t1:"Ready to", ct_t2:"take the wheel?",
+    ct_phone:"Phone", ct_addr:"Address", ct_addr_v:"12 Paradigma Avenue, Athens",
+    ct_hours:"Opening Hours", ct_hours_v:"Monday – Friday 09:00–21:00 · Saturday 10:00–14:00",
+    cta_t1:"Your first lesson", cta_t2:"starts with a phone call.",
+    cta_p:"Tell us which licence you're interested in and we'll walk you through the process, cost and schedule step by step — with no commitment.",
+    cta_btn:"Call us now",
+    h1:"Monday – Friday", h2:"Saturday", h3:"Sunday", h3_v:"Closed",
+    copyright:"© 2026 Tenné Driving School. All rights reserved.",
+    credit:"Website by"
+  }
+};
+
+var currentLang = "el";
+try{
+  var saved = localStorage.getItem("tenne-lang");
+  if(saved === "en" || saved === "el") currentLang = saved;
+}catch(e){}
+
+function setLang(lang){
+  currentLang = lang;
+  var dict = I18N[lang];
+  document.querySelectorAll("[data-i]").forEach(function(el){
+    var key = el.getAttribute("data-i");
+    if(dict[key] !== undefined) el.innerHTML = dict[key];
+  });
+  document.documentElement.lang = lang;
+  document.title = lang === "el"
+    ? "Σχολή Οδηγών Τεννέ | Δίπλωμα Αυτοκινήτου & Μοτοσικλέτας"
+    : "Tenné Driving School | Car & Motorcycle Licences";
+  document.querySelectorAll(".lang-btn").forEach(function(btn){
+    btn.classList.toggle("active", btn.getAttribute("data-lang") === lang);
+  });
+  try{ localStorage.setItem("tenne-lang", lang); }catch(e){}
+}
+document.querySelectorAll(".lang-btn").forEach(function(btn){
+  btn.addEventListener("click", function(){ setLang(btn.getAttribute("data-lang")); });
+});
+if(currentLang !== "el") setLang(currentLang);
+
+/* ============ Header scroll + road progress ============ */
+var header = document.getElementById("header");
+var progress = document.getElementById("roadProgress");
+function onScroll(){
+  var y = window.scrollY;
+  header.classList.toggle("scrolled", y > 40);
+  var doc = document.documentElement;
+  var max = doc.scrollHeight - window.innerHeight;
+  progress.style.width = (max > 0 ? (y / max) * 100 : 0) + "%";
+}
+window.addEventListener("scroll", onScroll, {passive:true});
+onScroll();
+
+/* ============ Mobile menu ============ */
+var burger = document.getElementById("burger");
+var mobileMenu = document.getElementById("mobileMenu");
+var mobileClose = document.getElementById("mobileClose");
+function openMenu(){
+  mobileMenu.classList.add("open");
+  mobileMenu.setAttribute("aria-hidden","false");
+  burger.setAttribute("aria-expanded","true");
+  document.body.style.overflow = "hidden";
+}
+function closeMenu(){
+  mobileMenu.classList.remove("open");
+  mobileMenu.setAttribute("aria-hidden","true");
+  burger.setAttribute("aria-expanded","false");
+  document.body.style.overflow = "";
+}
+burger.addEventListener("click", openMenu);
+mobileClose.addEventListener("click", closeMenu);
+mobileMenu.querySelectorAll("a").forEach(function(a){ a.addEventListener("click", closeMenu); });
+
+/* ============ Scroll reveals ============ */
+var revealEls = document.querySelectorAll(".reveal,.reveal-left,.reveal-right,.reveal-scale");
+if("IntersectionObserver" in window){
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add("in");
+        io.unobserve(entry.target);
+      }
+    });
+  }, {threshold:.14, rootMargin:"0px 0px -40px 0px"});
+  revealEls.forEach(function(el){ io.observe(el); });
+}else{
+  revealEls.forEach(function(el){ el.classList.add("in"); });
+}
+
+/* ============ Animated counters ============ */
+var counters = document.querySelectorAll(".counter");
+var counted = new WeakSet();
+function animateCounter(el){
+  if(counted.has(el)) return;
+  counted.add(el);
+  var target = parseInt(el.getAttribute("data-target"), 10);
+  var dur = 1800, start = null;
+  function frame(ts){
+    if(!start) start = ts;
+    var p = Math.min((ts - start) / dur, 1);
+    var eased = 1 - Math.pow(1 - p, 3);
+    el.textContent = Math.round(target * eased).toLocaleString("el-GR");
+    if(p < 1) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+}
+if("IntersectionObserver" in window){
+  var cio = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){ animateCounter(entry.target); cio.unobserve(entry.target); }
+    });
+  }, {threshold:.5});
+  counters.forEach(function(c){ cio.observe(c); });
+}else{
+  counters.forEach(function(c){ c.textContent = c.getAttribute("data-target"); });
+}
+
+/* ============ Marquee duplication ============ */
+var marquee = document.getElementById("marquee");
+if(marquee){
+  marquee.innerHTML += marquee.innerHTML;
+  if(currentLang !== "el") setLang(currentLang);
+}
+
+/* ============ Lightbox ============ */
+var lightbox = document.getElementById("lightbox");
+var lightboxImg = document.getElementById("lightboxImg");
+var lightboxClose = document.getElementById("lightboxClose");
+function openLightbox(src, alt){
+  lightboxImg.src = src;
+  lightboxImg.alt = alt || "";
+  lightbox.classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+function closeLightbox(){
+  lightbox.classList.remove("open");
+  document.body.style.overflow = "";
+}
+document.addEventListener("click", function(e){
+  var img = e.target.closest("img.zoomable");
+  if(img){
+    var full = img.src.replace(/w=\d+/, "w=2000");
+    openLightbox(full, img.alt);
+  }
+});
+lightboxClose.addEventListener("click", closeLightbox);
+lightbox.addEventListener("click", function(e){ if(e.target === lightbox) closeLightbox(); });
+document.addEventListener("keydown", function(e){
+  if(e.key === "Escape"){ closeLightbox(); closeMenu(); }
+});
+
+/* ============ Hero parallax ============ */
+var heroPhoto = document.querySelector(".hero-photo");
+var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+if(heroPhoto && !reduceMotion){
+  window.addEventListener("scroll", function(){
+    var y = window.scrollY;
+    if(y < window.innerHeight){
+      heroPhoto.style.transform = "rotate(2.5deg) translateY(" + (y * .08) + "px)";
+    }
+  }, {passive:true});
+}
+})();
+</script>
+</body>
+</html>
