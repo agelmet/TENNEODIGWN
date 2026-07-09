@@ -12,6 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@500;600;700;800&family=Commissioner:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Favicon updated with your logo exactly as is -->
 <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/agelmet/TENNEODIGWN/refs/heads/main/Gemini_Generated_Image_ug4bh3ug4bh3ug4b-2.png">
 <style>
 /* ============ TOKENS ============ */
@@ -21,8 +22,9 @@
   --asphalt-3:#1D3157;
   --concrete:#F4F1EA;
   --white:#FFFFFF;
-  --signal:#3B82F6; /* Replaced orange with modern blue */
-  --signal-deep:#2563EB;
+  /* Signal color updated from orange to blue for better aesthetics */
+  --signal:#1E90FF; /* DodgerBlue */
+  --signal-deep:#1873CC;
   --ink:#131B2B;
   --muted:#5C6577;
   --line:rgba(19,27,43,.1);
@@ -33,7 +35,7 @@
   --shadow-sm:0 2px 10px rgba(21,23,28,.07);
   --shadow-md:0 14px 40px -12px rgba(21,23,28,.22);
   --shadow-lg:0 30px 70px -20px rgba(21,23,28,.38);
-  --shadow-glow:0 10px 40px -8px rgba(59,130,246,.5);
+  --shadow-glow:0 10px 40px -8px rgba(30,144,255,.5);
   --radius:18px;
   --ease:cubic-bezier(.22,1,.36,1);
 }
@@ -58,24 +60,28 @@ h1,h2,h3,.display{font-family:var(--font-display);line-height:1.04;letter-spacin
 section{padding:clamp(4.5rem,9vw,7.5rem) 0;position:relative}
 
 /* ============ ROAD PROGRESS BAR ============ */
-#roadProgress{position:fixed;top:0;left:0;height:5px;width:0;z-index:1200;background:repeating-linear-gradient(90deg,var(--signal) 0 26px,var(--asphalt) 26px 40px);box-shadow:0 1px 8px rgba(59,130,246,.5);transition:width .12s linear}
+#roadProgress{position:fixed;top:0;left:0;height:5px;width:0;z-index:1200;background:repeating-linear-gradient(90deg,var(--signal) 0 26px,var(--asphalt) 26px 40px);box-shadow:0 1px 8px rgba(30,144,255,.5);transition:width .12s linear}
 
 /* ============ NAV ============ */
 header{position:fixed;top:0;left:0;right:0;z-index:1000;transition:background .35s var(--ease),box-shadow .35s var(--ease),padding .35s var(--ease);padding:20px 0}
 header.scrolled{background:rgba(21,23,28,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:12px 0;box-shadow:0 10px 30px -12px rgba(0,0,0,.5)}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:20px}
 .brand{display:flex;align-items:center;gap:12px;color:#fff}
-.brand img{transition:transform .4s var(--ease)}
-.brand:hover img{transform:scale(1.06)}
-.brand-name{font-family:var(--font-display);font-weight:800;font-size:1.5rem;letter-spacing:.04em;line-height:1;text-transform:uppercase; margin-left: 4px;}
+/* Logo adjusted: uncropped and slightly bigger */
+.brand .logo-img{width:auto;height:54px;display:block;margin:0;object-fit:contain;transition:transform .4s var(--ease)}
+.brand:hover .logo-img{transform:scale(1.04)}
+.brand-name{font-family:var(--font-display);font-weight:800;font-size:1.5rem;letter-spacing:.04em;line-height:1;text-transform:uppercase}
+.brand-sub{display:block;font-family:var(--font-body);font-weight:600;font-size:.62rem;letter-spacing:.32em;text-transform:uppercase;color:var(--signal);margin-top:3px}
 .nav-links{display:flex;align-items:center;gap:30px}
 .nav-links a{color:rgba(255,255,255,.78);font-weight:500;font-size:.94rem;position:relative;padding:4px 0;transition:color .25s}
 .nav-links a::after{content:"";position:absolute;left:0;bottom:-2px;width:100%;height:2px;background:repeating-linear-gradient(90deg,var(--signal) 0 7px,transparent 7px 12px);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
 .nav-links a:hover{color:#fff}
 .nav-links a:hover::after{transform:scaleX(1)}
-.nav-cta{background:var(--signal);color:#fff!important;font-weight:700;padding:12px 28px;margin:0 10px;border-radius:12px;box-shadow:var(--shadow-glow);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
-.nav-cta::after{display:none}
-.nav-cta:hover{transform:translateY(-2px);box-shadow:0 16px 44px -8px rgba(59,130,246,.6)}
+/* Contact link styled differently without CTAs logic, with improved margins */
+.nav-contact-link{border: 1px solid rgba(255,255,255,0.2);padding: 8px 18px;border-radius: 12px;transition: background .3s, color .3s, border-color .3s;margin-left: 10px;}
+.nav-contact-link::after{display:none}
+.nav-contact-link:hover{background: rgba(255,255,255,0.1);border-color: rgba(255,255,255,0.4);color: #fff !important;}
+
 .lang-switch{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:5px}
 .lang-btn{display:flex;align-items:center;gap:7px;background:transparent;border:none;cursor:pointer;padding:6px 10px;border-radius:8px;font-family:var(--font-body);font-weight:700;font-size:.78rem;color:rgba(255,255,255,.6);transition:all .25s}
 .lang-btn svg{width:20px;height:14px;border-radius:2.5px;box-shadow:0 1px 4px rgba(0,0,0,.4)}
@@ -89,7 +95,7 @@ header.scrolled{background:rgba(21,23,28,.88);backdrop-filter:blur(14px);-webkit
 /* Mobile menu */
 .mobile-menu{position:fixed;inset:0;background:linear-gradient(160deg,var(--asphalt) 0%,var(--asphalt-3) 100%);z-index:1250;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;opacity:0;visibility:hidden;transition:opacity .4s var(--ease),visibility .4s}
 .mobile-menu.open{opacity:1;visibility:visible}
-.mobile-menu::before{content:"";position:absolute;top:0;bottom:0;left:50%;width:4px;transform:translateX(-50%);background:repeating-linear-gradient(180deg,rgba(59,130,246,.16) 0 34px,transparent 34px 60px)}
+.mobile-menu::before{content:"";position:absolute;top:0;bottom:0;left:50%;width:4px;transform:translateX(-50%);background:repeating-linear-gradient(180deg,rgba(30,144,255,.16) 0 34px,transparent 34px 60px)}
 .mobile-menu a{color:#fff;font-family:var(--font-display);font-weight:700;font-size:2rem;text-transform:uppercase;letter-spacing:.03em;padding:10px 26px;position:relative;transform:translateY(24px);opacity:0;transition:transform .5s var(--ease),opacity .5s var(--ease),color .25s}
 .mobile-menu.open a{transform:translateY(0);opacity:1}
 .mobile-menu a:hover{color:var(--signal)}
@@ -104,7 +110,7 @@ header.scrolled{background:rgba(21,23,28,.88);backdrop-filter:blur(14px);-webkit
 /* ============ HERO ============ */
 .hero{min-height:100svh;background:radial-gradient(1200px 700px at 78% -10%,#2A2E3A 0%,var(--asphalt) 55%);color:#fff;display:flex;align-items:center;padding:150px 0 90px;overflow:hidden}
 .hero::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;background-image:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="140" height="140"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2"/><feColorMatrix values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .04 0"/></filter><rect width="140" height="140" filter="url(%23n)"/></svg>')}
-.lane{position:absolute;top:-10%;bottom:-10%;width:5px;background:repeating-linear-gradient(180deg,rgba(59,130,246,.85) 0 42px,transparent 42px 78px);animation:laneMove 2.2s linear infinite;filter:drop-shadow(0 0 10px rgba(59,130,246,.35))}
+.lane{position:absolute;top:-10%;bottom:-10%;width:5px;background:repeating-linear-gradient(180deg,rgba(30,144,255,.85) 0 42px,transparent 42px 78px);animation:laneMove 2.2s linear infinite;filter:drop-shadow(0 0 10px rgba(30,144,255,.35))}
 .lane.l1{left:8%;opacity:.16}
 .lane.l2{left:50.5%;opacity:.10;animation-duration:1.6s}
 .lane.l3{right:6%;opacity:.2;animation-duration:2.8s}
@@ -117,14 +123,14 @@ header.scrolled{background:rgba(21,23,28,.88);backdrop-filter:blur(14px);-webkit
 .hero-ctas{display:flex;flex-wrap:wrap;gap:16px;align-items:center}
 .btn{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:1rem;padding:16px 30px;border-radius:14px;transition:transform .3s var(--ease),box-shadow .3s var(--ease),background .3s;cursor:pointer;border:none;font-family:var(--font-body)}
 .btn-primary{background:var(--signal);color:#fff;box-shadow:var(--shadow-glow)}
-.btn-primary:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 20px 50px -10px rgba(59,130,246,.65)}
+.btn-primary:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 20px 50px -10px rgba(30,144,255,.65)}
 .btn-primary svg{transition:transform .3s var(--ease)}
 .btn-primary:hover svg{transform:translateX(4px)}
 .btn-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.25)}
 .btn-ghost:hover{border-color:var(--signal);color:var(--signal);transform:translateY(-3px)}
 .hero-badges{display:flex;gap:26px;margin-top:2.6rem;flex-wrap:wrap}
 .hero-badge{display:flex;align-items:center;gap:11px;color:rgba(255,255,255,.7);font-size:.9rem;font-weight:500}
-.hero-badge .dot{width:34px;height:34px;flex:0 0 34px;border-radius:10px;background:rgba(59,130,246,.12);border:1px solid rgba(59,130,246,.3);display:flex;align-items:center;justify-content:center}
+.hero-badge .dot{width:34px;height:34px;flex:0 0 34px;border-radius:10px;background:rgba(30,144,255,.12);border:1px solid rgba(30,144,255,.3);display:flex;align-items:center;justify-content:center}
 .hero-badge svg{width:16px;height:16px;stroke:var(--signal);fill:none;stroke-width:2.2}
 
 .hero-visual{position:relative}
@@ -132,7 +138,8 @@ header.scrolled{background:rgba(21,23,28,.88);backdrop-filter:blur(14px);-webkit
 .hero-photo img{width:100%;height:520px;object-fit:cover;transition:transform 6s var(--ease)}
 .hero-photo:hover img{transform:scale(1.07)}
 .hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(200deg,transparent 55%,rgba(21,23,28,.65) 100%);pointer-events:none}
-.hero-plate{position:absolute;top:-34px;left:-34px;width:118px;height:118px;filter:drop-shadow(0 18px 40px rgba(59,130,246,.4));animation:plateFloat 5s ease-in-out infinite;z-index:3}
+/* Floating logo plate adjusted */
+.brand-plate-floating{position:absolute;top:-34px;left:-34px;width:auto;height:90px;object-fit:contain;filter:drop-shadow(0 18px 40px rgba(30,144,255,.4));animation:plateFloat 5s ease-in-out infinite;z-index:3}
 @keyframes plateFloat{0%,100%{transform:translateY(0) rotate(-7deg)}50%{transform:translateY(-14px) rotate(-3deg)}}
 .sign-chip{position:absolute;background:rgba(28,31,38,.85);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:12px 16px;display:flex;align-items:center;gap:12px;box-shadow:0 20px 50px -12px rgba(0,0,0,.6);z-index:3}
 .sign-chip .cat{font-family:var(--font-display);font-weight:800;font-size:1.25rem;color:#fff;background:var(--signal);width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center}
@@ -173,10 +180,10 @@ header.scrolled{background:rgba(21,23,28,.88);backdrop-filter:blur(14px);-webkit
 .stats{background:var(--signal);padding:0;position:relative;overflow:hidden}
 .stats::before{content:"";position:absolute;top:50%;left:0;right:0;height:4px;transform:translateY(-50%);background:repeating-linear-gradient(90deg,rgba(21,23,28,.14) 0 40px,transparent 40px 72px);pointer-events:none}
 .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;position:relative}
-.stat{padding:54px 20px;text-align:center;transition:background .3s; color:#fff;}
+.stat{padding:54px 20px;text-align:center;transition:background .3s}
 .stat:hover{background:rgba(21,23,28,.05)}
 .stat b{display:block;font-family:var(--font-display);font-weight:800;font-size:clamp(2.6rem,4.4vw,3.7rem);line-height:1;color:#fff}
-.stat span{display:block;margin-top:8px;font-weight:600;font-size:.86rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.85)}
+.stat span{display:block;margin-top:8px;font-weight:600;font-size:.86rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,0.9)}
 
 /* ============ LICENSE CARDS ============ */
 .licenses{background:var(--concrete)}
@@ -186,7 +193,7 @@ header.scrolled{background:rgba(21,23,28,.88);backdrop-filter:blur(14px);-webkit
 .lcard::before{content:"";position:absolute;top:0;left:0;right:0;height:5px;background:repeating-linear-gradient(90deg,var(--signal) 0 18px,transparent 18px 30px);opacity:0;transition:opacity .4s}
 .lcard:hover{transform:translateY(-10px);box-shadow:var(--shadow-lg)}
 .lcard:hover::before{opacity:1}
-.lcard .cat-plate{width:66px;height:66px;border-radius:16px;background:var(--asphalt);color:var(--signal);font-family:var(--font-display);font-weight:800;font-size:1.7rem;display:flex;align-items:center;justify-content:center;margin-bottom:22px;box-shadow:0 12px 26px -8px rgba(21,23,28,.4);transition:transform .45s var(--ease),background .45s, color .45s}
+.lcard .cat-plate{width:66px;height:66px;border-radius:16px;background:var(--asphalt);color:var(--signal);font-family:var(--font-display);font-weight:800;font-size:1.7rem;display:flex;align-items:center;justify-content:center;margin-bottom:22px;box-shadow:0 12px 26px -8px rgba(21,23,28,.4);transition:transform .45s var(--ease),background .45s,color .45s}
 .lcard:hover .cat-plate{transform:rotate(-8deg) scale(1.08);background:var(--signal);color:#fff}
 .lcard h3{font-size:1.55rem;font-weight:700;text-transform:uppercase;margin-bottom:10px}
 .lcard p{color:var(--muted);font-size:.96rem;margin-bottom:18px}
@@ -201,24 +208,21 @@ header.scrolled{background:rgba(21,23,28,.88);backdrop-filter:blur(14px);-webkit
 .why-photo .frame{border-radius:24px;overflow:hidden;box-shadow:0 40px 90px -25px rgba(0,0,0,.75);cursor:zoom-in}
 .why-photo .frame img{width:100%;height:560px;object-fit:cover;transition:transform 5s var(--ease)}
 .why-photo .frame:hover img{transform:scale(1.08)}
-.why-photo::after{content:"";position:absolute;inset:26px -26px -26px 26px;border:1.5px dashed rgba(59,130,246,.4);border-radius:24px;z-index:-1}
+.why-photo::after{content:"";position:absolute;inset:26px -26px -26px 26px;border:1.5px dashed rgba(30,144,255,.4);border-radius:24px;z-index:-1}
 .exp-tag{position:absolute;bottom:-28px;left:-28px;background:var(--signal);color:#fff;border-radius:18px;padding:20px 26px;box-shadow:var(--shadow-glow);text-align:center}
 .exp-tag b{display:block;font-family:var(--font-display);font-weight:800;font-size:2.6rem;line-height:1}
+/* Tagline updated for better aesthetics */
 .exp-tag span{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
 .feature-list{display:flex;flex-direction:column;gap:8px;margin-top:2rem}
 .feature{display:flex;gap:18px;padding:20px;border-radius:16px;border:1px solid transparent;transition:background .35s,border-color .35s,transform .35s var(--ease)}
 .feature:hover{background:rgba(255,255,255,.04);border-color:var(--line-light);transform:translateX(8px)}
-.feature .f-icon{width:52px;height:52px;flex:0 0 52px;border-radius:14px;background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.28);display:flex;align-items:center;justify-content:center}
+.feature .f-icon{width:52px;height:52px;flex:0 0 52px;border-radius:14px;background:rgba(30,144,255,.1);border:1px solid rgba(30,144,255,.28);display:flex;align-items:center;justify-content:center}
 .feature .f-icon svg{width:23px;height:23px;stroke:var(--signal);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .feature h3{font-size:1.22rem;font-weight:700;text-transform:uppercase;margin-bottom:4px}
 .feature p{color:rgba(255,255,255,.58);font-size:.93rem}
 
 /* ============ PROCESS ============ */
 .process{background:var(--concrete);overflow:hidden}
-.process-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:60px;align-items:center}
-.process-photo .frame{border-radius:24px;overflow:hidden;box-shadow:var(--shadow-lg);cursor:zoom-in;position:relative;height:100%}
-.process-photo .frame img{width:100%;height:100%;min-height:540px;object-fit:cover;transition:transform 5s var(--ease)}
-.process-photo .frame:hover img{transform:scale(1.05)}
 .route{position:relative;margin-top:3.6rem}
 .route::before{content:"";position:absolute;left:33px;top:10px;bottom:10px;width:4px;background:repeating-linear-gradient(180deg,var(--signal) 0 22px,transparent 22px 38px);border-radius:2px}
 .step{display:grid;grid-template-columns:70px 1fr;gap:26px;padding:26px 0;position:relative}
@@ -247,19 +251,19 @@ header.scrolled{background:rgba(21,23,28,.88);backdrop-filter:blur(14px);-webkit
 .certs{position:relative;border-radius:20px;overflow:hidden;box-shadow:var(--shadow-lg);border:1px solid var(--line-light);cursor:zoom-in}
 .certs img{width:100%;height:340px;object-fit:cover;transition:transform 4s var(--ease)}
 .certs:hover img{transform:scale(1.06)}
-.certs figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 22px 16px;font-size:.82rem;font-weight:600;letter-spacing:.03em;color:#fff;background:linear-gradient(0deg,rgba(14,27,51,.92),transparent)}
+.certs figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 22px 16px;font-size:.82rem;font-weight:600;letter-spacing:.03em;color:#fff;background:linear-gradient(0deg,rgba(14,27,51,0.92),transparent)}
 @media(max-width:900px){.reviews-head{grid-template-columns:1fr;gap:32px}.certs img{height:280px}}
 .marquee{display:flex;gap:24px;width:max-content;animation:marquee 46s linear infinite}
 .marquee:hover{animation-play-state:paused}
 @keyframes marquee{to{transform:translateX(-50%)}}
 .review-card{width:400px;flex:0 0 auto;background:var(--asphalt-2);border:1px solid var(--line-light);border-radius:20px;padding:32px;transition:border-color .35s,transform .35s var(--ease)}
-.review-card:hover{border-color:rgba(59,130,246,.45);transform:translateY(-6px)}
+.review-card:hover{border-color:rgba(30,144,255,.45);transform:translateY(-6px)}
 .review-card .stars{color:var(--signal);letter-spacing:4px;font-size:1.05rem;margin-bottom:16px}
 .review-card p{color:rgba(255,255,255,.78);font-size:.99rem;margin-bottom:22px}
 .review-card .who{display:flex;align-items:center;gap:13px}
 .review-card .avatar{width:46px;height:46px;border-radius:12px;background:var(--signal);color:#fff;font-family:var(--font-display);font-weight:800;font-size:1.15rem;display:flex;align-items:center;justify-content:center}
 .review-card .who b{display:block;font-size:.95rem}
-.review-card .who span{font-size:.78rem;color:rgba(255,255,255,.45)}
+.review-card .who span{font-size:.78rem;color:rgba(255,255,255,0.45)}
 
 /* ============ CONTACT ============ */
 .contact{background:var(--concrete)}
@@ -281,17 +285,19 @@ header.scrolled{background:rgba(21,23,28,.88);backdrop-filter:blur(14px);-webkit
 .contact-card p,.contact-card a{color:var(--muted);font-size:.96rem}
 .contact-card a:hover{color:var(--ink)}
 .cta-panel{background:var(--asphalt);color:#fff;border-radius:24px;padding:52px 46px;position:relative;overflow:hidden;box-shadow:var(--shadow-lg)}
-.cta-panel::before{content:"";position:absolute;top:0;bottom:0;right:34px;width:4px;background:repeating-linear-gradient(180deg,rgba(59,130,246,.5) 0 24px,transparent 24px 42px)}
+.cta-panel::before{content:"";position:absolute;top:0;bottom:0;right:34px;width:4px;background:repeating-linear-gradient(180deg,rgba(30,144,255,.5) 0 24px,transparent 24px 42px)}
 .cta-panel h3{font-size:2.1rem;font-weight:800;text-transform:uppercase;margin-bottom:14px}
 .cta-panel h3 em{font-style:normal;color:var(--signal)}
 .cta-panel p{color:rgba(255,255,255,.62);margin-bottom:30px;max-width:38ch}
 .cta-panel .hours{margin-top:34px;padding-top:26px;border-top:1px solid var(--line-light)}
-.cta-panel .hours li{display:flex;justify-content:space-between;padding:7px 0;font-size:.93rem;color:rgba(255,255,255,.7);max-width:340px}
+.cta-panel .hours li{display:flex;justify-content:space-between;padding:7px 0;font-size:.93rem;color:rgba(255,255,255,0.7);max-width:340px}
 .cta-panel .hours li b{color:#fff;font-weight:600}
 
 /* ============ FOOTER ============ */
-footer{background:#101216;color:rgba(255,255,255,.55);padding:56px 0 30px}
-.footer-grid{display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap;padding-bottom:34px;border-bottom:1px solid rgba(255,255,255,.07);margin-bottom:26px}
+footer{background:#101216;color:rgba(255,255,255,0.55);padding:56px 0 30px}
+.footer-grid{display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap;padding-bottom:34px;border-bottom:1px solid rgba(255,255,255,0.07);margin-bottom:26px}
+/* Updated brand styles in footer for uncropped logo */
+.footer .brand .logo-img{height:46px;}
 .footer-nav{display:flex;gap:26px;flex-wrap:wrap}
 .footer-nav a{font-size:.9rem;transition:color .25s}
 .footer-nav a:hover{color:var(--signal)}
@@ -300,23 +306,22 @@ footer{background:#101216;color:rgba(255,255,255,.55);padding:56px 0 30px}
 .footer-bottom a:hover{text-decoration:underline}
 
 /* ============ LIGHTBOX ============ */
-.lightbox{position:fixed;inset:0;background:rgba(13,14,18,.94);backdrop-filter:blur(10px);z-index:2000;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .4s var(--ease),visibility .4s}
+.lightbox{position:fixed;inset:0;background:rgba(13,14,18,0.94);backdrop-filter:blur(10px);z-index:2000;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .4s var(--ease),visibility .4s}
 .lightbox.open{opacity:1;visibility:visible}
-.lightbox img{max-width:90vw;max-height:86vh;border-radius:16px;box-shadow:0 40px 120px rgba(0,0,0,.8);transform:scale(.88);transition:transform .45s var(--ease)}
+.lightbox img{max-width:90vw;max-height:86vh;border-radius:16px;box-shadow:0 40px 120px rgba(0,0,0,0.8);transform:scale(0.88);transition:transform .45s var(--ease)}
 .lightbox.open img{transform:scale(1)}
-.lightbox-close{position:absolute;top:24px;right:26px;width:54px;height:54px;border-radius:14px;border:1.5px solid rgba(255,255,255,.25);background:rgba(255,255,255,.06);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s}
+.lightbox-close{position:absolute;top:24px;right:26px;width:54px;height:54px;border-radius:14px;border:1.5px solid rgba(255,255,255,0.25);background:rgba(255,255,255,0.06);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s}
 .lightbox-close:hover{background:var(--signal);border-color:var(--signal)}
 .lightbox-close svg{width:22px;height:22px;stroke:#fff;stroke-width:2.5}
 .lightbox-close:hover svg{stroke:#fff}
 
 /* ============ RESPONSIVE ============ */
 @media(max-width:1024px){
-  .hero-grid,.why-grid,.contact-grid,.process-grid{grid-template-columns:1fr;gap:50px}
+  .hero-grid,.why-grid,.contact-grid{grid-template-columns:1fr;gap:50px}
   .cards-grid{grid-template-columns:repeat(2,1fr)}
   .stats-grid{grid-template-columns:repeat(2,1fr)}
   .hero-photo img{height:420px}
   .why-photo .frame img{height:420px}
-  .process-photo .frame img{height:420px; min-height:auto;}
   .hero{padding-top:130px}
   .chip-1{left:-8px}
   .chip-2{right:-8px}
@@ -327,7 +332,7 @@ footer{background:#101216;color:rgba(255,255,255,.55);padding:56px 0 30px}
   .lang-switch.desktop{display:none}
   .cards-grid{grid-template-columns:1fr}
   .gallery-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:190px}
-  .hero-plate{width:88px;height:88px;top:-24px;left:-12px}
+  .brand-plate-floating{height:60px;top:-24px;left:-12px}
   .hero h1{font-size:clamp(2.6rem,11vw,3.4rem)}
   .review-card{width:320px}
   .route::before{left:27px}
@@ -343,6 +348,8 @@ footer{background:#101216;color:rgba(255,255,255,.55);padding:56px 0 30px}
   .gallery-grid{grid-template-columns:1fr;grid-auto-rows:230px}
   .g-item.tall{grid-row:span 1}
   .cta-panel{padding:38px 28px}
+  .brand-name{font-size:1.2rem}
+  .brand .logo-img{height:40px;}
 }
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
@@ -355,11 +362,15 @@ footer{background:#101216;color:rgba(255,255,255,.55);padding:56px 0 30px}
 
 <div id="roadProgress"></div>
 
+<!-- ============ NAV ============ -->
 <header id="header">
   <div class="container nav">
-    <a href="#home" class="brand" aria-label="Σχολές Οδηγών">
-      <img src="https://raw.githubusercontent.com/agelmet/TENNEODIGWN/refs/heads/main/Gemini_Generated_Image_ug4bh3ug4bh3ug4b-2.png" alt="Logo" style="height:46px; width:auto; object-fit:contain;">
-      <span class="brand-name" data-i="brand_text">ΣΧΟΛΕΣ ΟΔΗΓΩΝ</span>
+    <a href="#home" class="brand" aria-label="Σχολή Οδηγών Τεννέ | ΣΧΟΛΕΣ ΟΔΗΓΩΝ">
+      <!-- Logo updated: bigger and exactly as is not cropped -->
+      <img src="https://raw.githubusercontent.com/agelmet/TENNEODIGWN/refs/heads/main/Gemini_Generated_Image_ug4bh3ug4bh3ug4b-2.png" alt="Logo Plate" class="logo-img">
+      <span>
+        <span class="brand-name">ΣΧΟΛΕΣ ΟΔΗΓΩΝ</span>
+      </span>
     </a>
     <nav class="nav-links" aria-label="Κύριο μενού">
       <a href="#home" data-i="nav_home">Αρχική</a>
@@ -377,7 +388,8 @@ footer{background:#101216;color:rgba(255,255,255,.55);padding:56px 0 30px}
           EN
         </button>
       </div>
-      <a href="#contact" class="nav-cta" data-i="nav_cta">Ξεκίνα Τώρα</a>
+      <!-- "Ξεκίνα Τώρα" removed, replaced by contact link with improved margins -->
+      <a href="#contact" class="nav-contact-link" data-i="nav_contact">Επικοινωνία</a>
     </nav>
     <button class="burger" id="burger" aria-label="Άνοιγμα μενού" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -385,6 +397,7 @@ footer{background:#101216;color:rgba(255,255,255,.55);padding:56px 0 30px}
   </div>
 </header>
 
+<!-- Mobile menu -->
 <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
   <button class="mobile-close" id="mobileClose" aria-label="Κλείσιμο μενού">
     <svg viewBox="0 0 24 24" fill="none"><path d="M5 5l14 14M19 5L5 19"/></svg>
@@ -407,6 +420,7 @@ footer{background:#101216;color:rgba(255,255,255,.55);padding:56px 0 30px}
   </div>
 </div>
 
+<!-- ============ HERO ============ -->
 <section class="hero" id="home">
   <div class="lane l1"></div>
   <div class="lane l2"></div>
@@ -442,11 +456,8 @@ footer{background:#101216;color:rgba(255,255,255,.55);padding:56px 0 30px}
       </div>
     </div>
     <div class="hero-visual">
-      <svg class="hero-plate" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <rect x="2" y="2" width="60" height="60" rx="13" fill="#3B82F6"/>
-        <rect x="2" y="2" width="60" height="60" rx="13" fill="none" stroke="#0E1B33" stroke-width="3.5"/>
-        <text x="32" y="46.5" font-family="Arial Black, Arial, sans-serif" font-size="37" font-weight="900" text-anchor="middle" fill="#0E1B33">Σ</text>
-      </svg>
+      <!-- Floating plate logo updated -->
+      <img src="https://raw.githubusercontent.com/agelmet/TENNEODIGWN/refs/heads/main/Gemini_Generated_Image_ug4bh3ug4bh3ug4b-2.png" alt="Floating Logo Plate" class="brand-plate-floating">
       <figure class="hero-photo">
         <img class="zoomable" src="https://raw.githubusercontent.com/agelmet/TENNEODIGWN/495c67c2c4b99ba7df4a9f7069d57696eeda3af0/sxher.jpg" alt="Ο Νεκτάριος Τεννές σε πρακτικό μάθημα οδήγησης" loading="eager">
       </figure>
@@ -463,6 +474,7 @@ footer{background:#101216;color:rgba(255,255,255,.55);padding:56px 0 30px}
   <div class="hero-scroll"><span data-i="scroll_hint">Κύλισε</span><span class="wheel"></span></div>
 </section>
 
+<!-- ============ STATS ============ -->
 <section class="stats" aria-label="Στατιστικά σχολής">
   <div class="stats-grid container">
     <div class="stat reveal"><b><span class="counter" data-target="25">0</span>+</b><span data-i="stat1">Χρόνια εμπειρίας</span></div>
@@ -472,6 +484,7 @@ footer{background:#101216;color:rgba(255,255,255,.55);padding:56px 0 30px}
   </div>
 </section>
 
+<!-- ============ LICENSES ============ -->
 <section class="licenses" id="diplomas">
   <div class="container">
     <div class="section-head">
@@ -513,7 +526,7 @@ footer{background:#101216;color:rgba(255,255,255,.55);padding:56px 0 30px}
         <span class="cat-plate">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v6h-6"/></svg>
         </span>
-        <h3 data-i="c4_t">Ανανέωση Διπλώματος</h3>
+        <h3 data-i="c4_t">Ανανέωση Διπλωμάτων</h3>
         <p data-i="c4_p">Ανανέωση λόγω λήξης ή ορίου ηλικίας, χωρίς ταλαιπωρία. Εμείς τρέχουμε τα χαρτιά, εσύ απλώς υπογράφεις.</p>
         <ul class="tags">
           <li data-i="c4_tag1">Γρήγορη διεκπεραίωση</li>
@@ -546,6 +559,7 @@ footer{background:#101216;color:rgba(255,255,255,.55);padding:56px 0 30px}
   </div>
 </section>
 
+<!-- ============ WHY ============ -->
 <section class="why" id="school">
   <div class="lane l1"></div>
   <div class="lane l3"></div>
@@ -556,7 +570,8 @@ footer{background:#101216;color:rgba(255,255,255,.55);padding:56px 0 30px}
       </figure>
       <div class="exp-tag">
         <b><span class="counter" data-target="25">0</span>+</b>
-        <span data-i="exp_tag">Χρόνια στο τιμόνι</span>
+        <!-- Tagline updated for better aesthetics -->
+        <span data-i="exp_tag">Παράδοση & Τεχνογνωσία</span>
       </div>
     </div>
     <div class="reveal-right">
@@ -597,59 +612,59 @@ footer{background:#101216;color:rgba(255,255,255,.55);padding:56px 0 30px}
   </div>
 </section>
 
+<!-- ============ PROCESS ============ -->
 <section class="process">
-  <div class="container process-grid">
-    <div class="process-content">
-      <div class="reveal">
-        <span class="eyebrow" data-i="pr_eyebrow">Η Διαδρομή</span>
-        <h2 class="section-title"><span data-i="pr_t1">Από την εγγραφή</span> <em data-i="pr_t2">στο δίπλωμα</em></h2>
-        <p class="lead" data-i="pr_lead">Τέσσερα βήματα, καμία γραφειοκρατική ταλαιπωρία για σένα. Αναλαμβάνουμε εμείς όλα τα ενδιάμεσα.</p>
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow" data-i="pr_eyebrow">Η Διαδρομή</span>
+      <h2 class="section-title"><span data-i="pr_t1">Από την εγγραφή</span> <em data-i="pr_t2">στο δίπλωμα</em></h2>
+      <p class="lead" data-i="pr_lead">Τέσσερα βήματα, καμία γραφειοκρατική ταλαιπωρία για σένα. Αναλαμβάνουμε εμείς όλα τα ενδιάμεσα.</p>
+    </div>
+    <div class="route">
+      <div class="step reveal-left">
+        <span class="marker">1</span>
+        <div class="step-body">
+          <h3 data-i="s1_t">Εγγραφή & Δικαιολογητικά</h3>
+          <p data-i="s1_p">Έρχεσαι με ταυτότητα και φωτογραφίες — τα υπόλοιπα τα τακτοποιούμε εμείς: αιτήσεις, παράβολα, ιατρικές εξετάσεις.</p>
+        </div>
       </div>
-      <div class="route">
-        <div class="step reveal-left">
-          <span class="marker">1</span>
-          <div class="step-body">
-            <h3 data-i="s1_t">Εγγραφή & Δικαιολογητικά</h3>
-            <p data-i="s1_p">Έρχεσαι με ταυτότητα και φωτογραφίες — τα υπόλοιπα τα τακτοποιούμε εμείς: αιτήσεις, παράβολα, ιατρικές εξετάσεις.</p>
-          </div>
+      <div class="step reveal-left" data-delay="1">
+        <span class="marker">2</span>
+        <div class="step-body">
+          <h3 data-i="s2_t">Θεωρητικά Μαθήματα</h3>
+          <p data-i="s2_p">Μαθήματα ΚΟΚ στη σύγχρονη αίθουσά μας και απεριόριστη εξάσκηση σε τεστ προσομοίωσης, μέχρι να νιώσεις έτοιμος.</p>
         </div>
-        <div class="step reveal-left" data-delay="1">
-          <span class="marker">2</span>
-          <div class="step-body">
-            <h3 data-i="s2_t">Θεωρητικά Μαθήματα</h3>
-            <p data-i="s2_p">Μαθήματα ΚΟΚ στη σύγχρονη αίθουσά μας και απεριόριστη εξάσκηση σε τεστ προσομοίωσης, μέχρι να νιώσεις έτοιμος.</p>
-          </div>
+      </div>
+      <div class="step reveal-left" data-delay="2">
+        <span class="marker">3</span>
+        <div class="step-body">
+          <h3 data-i="s3_t">Πρακτικά Μαθήματα</h3>
+          <p data-i="s3_p">Οδηγείς σε πραγματικές συνθήκες: κίνηση, παρκάρισμα, ανηφόρες, εθνική οδό. Με εκπαιδευτή δίπλα σου σε κάθε στροφή.</p>
         </div>
-        <div class="step reveal-left" data-delay="2">
-          <span class="marker">3</span>
-          <div class="step-body">
-            <h3 data-i="s3_t">Πρακτικά Μαθήματα</h3>
-            <p data-i="s3_p">Οδηγείς σε πραγματικές συνθήκες: κίνηση, παρκάρισμα, ανηφόρες, εθνική οδό. Με εκπαιδευτή δίπλα σου σε κάθε στροφή.</p>
-          </div>
-        </div>
-        <div class="step reveal-left" data-delay="3">
-          <span class="marker">4</span>
-          <div class="step-body">
-            <h3 data-i="s4_t">Εξετάσεις & Δίπλωμα</h3>
-            <p data-i="s4_p">Πηγαίνεις στην εξέταση προετοιμασμένος και με το όχημα που ήδη ξέρεις. Και μετά; Ο δρόμος είναι δικός σου.</p>
-          </div>
+      </div>
+      <div class="step reveal-left" data-delay="3">
+        <span class="marker">4</span>
+        <div class="step-body">
+          <h3 data-i="s4_t">Εξετάσεις & Δίπλωμα</h3>
+          <p data-i="s4_p">Πηγαίνεις στην εξέταση προετοιμασμένος και με το όχημα που ήδη ξέρεις. Και μετά; Ο δρόμος είναι δικός σου.</p>
         </div>
       </div>
     </div>
-    <div class="process-photo reveal-right">
-      <figure class="frame">
-        <img class="zoomable" src="https://raw.githubusercontent.com/agelmet/TENNEODIGWN/refs/heads/main/aslsda.jpg" alt="Εκπαιδεύτρια σε πρακτικό μάθημα" loading="lazy">
-      </figure>
+    <!-- symmetrically placed image section -->
+    <div class="reveal-scale" style="margin-top: clamp(2rem, 5vw, 4rem);">
+        <img src="https://raw.githubusercontent.com/agelmet/TENNEODIGWN/refs/heads/main/aslsda.jpg" alt="Εκπαιδευτικό Μάθημα" style="border-radius: var(--radius); width: 100%; height: auto; box-shadow: var(--shadow-md); transition: transform 0.3s; cursor: zoom-in;" class="zoomable">
     </div>
   </div>
 </section>
 
+<!-- ============ GALLERY ============ -->
 <section class="gallery" id="gallery">
   <div class="container">
     <div class="section-head">
       <div class="reveal">
         <span class="eyebrow" data-i="g_eyebrow">Γκαλερί</span>
-        <h2 class="section-title"><span data-i="g_t1">Ζωή</span> <em data-i="g_t2">στον δρόμο</em></h2>
+        <!-- Title updated for better aesthetics -->
+        <h2 class="section-title"><span data-i="g_t1">Διαδρομές</span> <em data-i="g_t2">Σιγουριάς</em></h2>
       </div>
       <p class="lead reveal" data-delay="1" data-i="g_lead">Στιγμές από μαθήματα, διαδρομές και την καθημερινότητα της σχολής. Πάτησε σε οποιαδήποτε φωτογραφία για να τη δεις σε πλήρες μέγεθος.</p>
     </div>
@@ -665,6 +680,7 @@ footer{background:#101216;color:rgba(255,255,255,.55);padding:56px 0 30px}
   </div>
 </section>
 
+<!-- ============ REVIEWS ============ -->
 <section class="reviews" id="reviews">
   <div class="container reviews-head">
     <div class="reveal">
@@ -711,6 +727,7 @@ footer{background:#101216;color:rgba(255,255,255,.55);padding:56px 0 30px}
   </div>
 </section>
 
+<!-- ============ CONTACT ============ -->
 <section class="contact" id="contact">
   <div class="container">
     <div class="reveal" style="margin-bottom:3.4rem">
@@ -767,12 +784,16 @@ footer{background:#101216;color:rgba(255,255,255,.55);padding:56px 0 30px}
   </div>
 </section>
 
-<footer>
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
   <div class="container">
     <div class="footer-grid">
-      <a href="#home" class="brand">
-        <img src="https://raw.githubusercontent.com/agelmet/TENNEODIGWN/refs/heads/main/Gemini_Generated_Image_ug4bh3ug4bh3ug4b-2.png" alt="Logo" style="height:40px; width:auto; object-fit:contain;">
-        <span class="brand-name" data-i="brand_text">ΣΧΟΛΕΣ ΟΔΗΓΩΝ</span>
+      <a href="#home" class="brand" aria-label="Σχολή Οδηγών Τεννέ | ΣΧΟΛΕΣ ΟΔΗΓΩΝ">
+        <!-- Logo updated in footer too -->
+        <img src="https://raw.githubusercontent.com/agelmet/TENNEODIGWN/refs/heads/main/Gemini_Generated_Image_ug4bh3ug4bh3ug4b-2.png" alt="Logo Plate" class="logo-img">
+        <span>
+          <span class="brand-name">ΣΧΟΛΕΣ ΟΔΗΓΩΝ</span>
+        </span>
       </a>
       <nav class="footer-nav" aria-label="Μενού υποσέλιδου">
         <a href="#home" data-i="nav_home">Αρχική</a>
@@ -789,6 +810,7 @@ footer{background:#101216;color:rgba(255,255,255,.55);padding:56px 0 30px}
   </div>
 </footer>
 
+<!-- ============ LIGHTBOX ============ -->
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Προβολή εικόνας">
   <button class="lightbox-close" id="lightboxClose" aria-label="Κλείσιμο">
     <svg viewBox="0 0 24 24" fill="none"><path d="M5 5l14 14M19 5L5 19"/></svg>
@@ -803,8 +825,7 @@ footer{background:#101216;color:rgba(255,255,255,.55);padding:56px 0 30px}
 /* ============ i18n ============ */
 var I18N = {
   el: {
-    brand_text:"ΣΧΟΛΕΣ ΟΔΗΓΩΝ",
-    nav_home:"Αρχική", nav_lic:"Διπλώματα", nav_school:"Η Σχολή", nav_gallery:"Γκαλερί", nav_reviews:"Κριτικές", nav_contact:"Επικοινωνία", nav_cta:"Ξεκίνα Τώρα",
+    nav_home:"Αρχική", nav_lic:"Διπλώματα", nav_school:"Η Σχολή", nav_gallery:"Γκαλερί", nav_reviews:"Κριτικές", nav_contact:"Επικοινωνία",
     hero_eyebrow:"Σχολή Οδηγών · Τεννέ",
     hero_t1:"Το δίπλωμα είναι η αρχή.",
     hero_t2:"Εμείς σε μαθαίνουμε να οδηγείς.",
@@ -819,10 +840,10 @@ var I18N = {
     c1_t:"Αυτοκίνητο", c1_p:"Το πιο δημοφιλές δίπλωμα, από τα 17. Θεωρητικά μαθήματα με απλή γλώσσα και πρακτική σε πραγματικές συνθήκες πόλης και εθνικής οδού.", c1_tag1:"Από 17 ετών", c1_tag2:"Χειροκίνητο & αυτόματο",
     c2_t:"Μοτοσικλέτα", c2_p:"Κατηγορίες ΑΜ, Α1, Α2 και Α. Εκπαίδευση με έμφαση στην ισορροπία, την αναγνώριση κινδύνου και την ασφαλή οδήγηση στην πόλη.", c2_tag2:"Εξοπλισμός σχολής",
     c3_t:"Επαγγελματικά", c3_p:"Πιστοποιητικό Επαγγελματικής Ικανότητας για οδηγούς φορτηγών και λεωφορείων. Αρχική επιμόρφωση και περιοδική κατάρτιση.", c3_tag1:"Κατηγορίες Γ & Δ", c3_tag2:"Περιοδική κατάρτιση",
-    c4_t:"Ανανέωση Διπλώματος", c4_p:"Ανανέωση λόγω λήξης ή ορίου ηλικίας, χωρίς ταλαιπωρία. Εμείς τρέχουμε τα χαρτιά, εσύ απλώς υπογράφεις.", c4_tag1:"Γρήγορη διεκπεραίωση", c4_tag2:"Ιατρικά ραντεβού",
+    c4_t:"Ανανέωση Διπλωμάτων", c4_p:"Ανανέωση λόγω λήξης ή ορίου ηλικίας, χωρίς ταλαιπωρία. Εμείς τρέχουμε τα χαρτιά, εσύ απλώς υπογράφεις.", c4_tag1:"Γρήγορη διεκπεραίωση", c4_tag2:"Ιατρικά ραντεβού",
     c5_t:"Διεθνές Δίπλωμα", c5_p:"Έκδοση διεθνούς άδειας οδήγησης και μετατροπή ξένων διπλωμάτων σε ελληνικά, με πλήρη καθοδήγηση στη διαδικασία.", c5_tag1:"Έκδοση & μετατροπή", c5_tag2:"Πλήρης υποστήριξη",
     c6_t:"Ειδικά Μαθήματα", c6_p:"Μαθήματα εξοικείωσης για κατόχους διπλώματος που έχουν χρόνια να οδηγήσουν, οδήγηση σε εθνική οδό και παρκάρισμα στην πόλη.", c6_tag1:"Εξατομικευμένο πρόγραμμα", c6_tag2:"Χωρίς άγχος",
-    exp_tag:"Χρόνια στο τιμόνι",
+    exp_tag:"Παράδοση & Τεχνογνωσία",
     why_eyebrow:"Γιατί Τεννέ", why_t1:"Οδηγούς φτιάχνουμε,", why_t2:"όχι απλώς διπλώματα",
     why_lead:"Ο στόχος μας δεν είναι να «περάσεις». Είναι να μπεις σε οποιοδήποτε αυτοκίνητο, σε οποιονδήποτε δρόμο, και να νιώθεις σιγουριά.",
     f1_t:"Εκπαιδευτές με υπομονή", f1_p:"Κάθε μαθητής έχει τον δικό του ρυθμό. Οι εκπαιδευτές μας εξηγούν ξανά, χωρίς εκνευρισμό και χωρίς φωνές — πάντα.",
@@ -835,7 +856,7 @@ var I18N = {
     s2_t:"Θεωρητικά Μαθήματα", s2_p:"Μαθήματα ΚΟΚ στη σύγχρονη αίθουσά μας και απεριόριστη εξάσκηση σε τεστ προσομοίωσης, μέχρι να νιώσεις έτοιμος.",
     s3_t:"Πρακτικά Μαθήματα", s3_p:"Οδηγείς σε πραγματικές συνθήκες: κίνηση, παρκάρισμα, ανηφόρες, εθνική οδό. Με εκπαιδευτή δίπλα σου σε κάθε στροφή.",
     s4_t:"Εξετάσεις & Δίπλωμα", s4_p:"Πηγαίνεις στην εξέταση προετοιμασμένος και με το όχημα που ήδη ξέρεις. Και μετά; Ο δρόμος είναι δικός σου.",
-    g_eyebrow:"Γκαλερί", g_t1:"Ζωή", g_t2:"στον δρόμο",
+    g_eyebrow:"Γκαλερί", g_t1:"Διαδρομές", g_t2:"Σιγουριάς",
     g_lead:"Στιγμές από μαθήματα, διαδρομές και την καθημερινότητα της σχολής. Πάτησε σε οποιαδήποτε φωτογραφία για να τη δεις σε πλήρες μέγεθος.",
     r_eyebrow:"Κριτικές & Πιστοποιήσεις", r_t1:"Τι λένε", r_t2:"οι οδηγοί μας",
     r_lead:"Πάνω από δύο δεκαετίες εμπειρίας, με πιστοποιημένη εκπαίδευση και επίσημες άδειες λειτουργίας — μια σχολή που εμπιστεύεσαι.",
@@ -858,8 +879,7 @@ var I18N = {
     credit:"Κατασκευή ιστοσελίδας από"
   },
   en: {
-    brand_text:"DRIVING SCHOOLS",
-    nav_home:"Home", nav_lic:"Licences", nav_school:"The School", nav_gallery:"Gallery", nav_reviews:"Reviews", nav_contact:"Contact", nav_cta:"Start Now",
+    nav_home:"Home", nav_lic:"Licences", nav_school:"The School", nav_gallery:"Gallery", nav_reviews:"Reviews", nav_contact:"Contact",
     hero_eyebrow:"Driving School · Tenné",
     hero_t1:"The licence is the beginning.",
     hero_t2:"We teach you how to drive.",
@@ -874,10 +894,10 @@ var I18N = {
     c1_t:"Car", c1_p:"The most popular licence, from age 17. Theory lessons in plain language and practice in real city and highway conditions.", c1_tag1:"From age 17", c1_tag2:"Manual & automatic",
     c2_t:"Motorcycle", c2_p:"Categories AM, A1, A2 and A. Training focused on balance, hazard awareness and safe riding in city traffic.", c2_tag2:"Gear provided",
     c3_t:"Professional", c3_p:"Certificate of Professional Competence (CPC) for truck and bus drivers. Initial qualification and periodic training.", c3_tag1:"Categories C & D", c3_tag2:"Periodic training",
-    c4_t:"Licence Renewal", c4_p:"Renewal due to expiry or age limit, hassle-free. We run the paperwork — you just sign.", c4_tag1:"Fast processing", c4_tag2:"Medical appointments",
+    c4_t:"Licence Renewals", c4_p:"Renewal due to expiry or age limit, hassle-free. We run the paperwork — you just sign.", c4_tag1:"Fast processing", c4_tag2:"Medical appointments",
     c5_t:"International Licence", c5_p:"Issuing of international driving permits and conversion of foreign licences to Greek ones, with full guidance throughout.", c5_tag1:"Issuing & conversion", c5_tag2:"Full support",
     c6_t:"Special Lessons", c6_p:"Refresher lessons for licence holders who haven't driven in years, highway driving practice and city parking skills.", c6_tag1:"Personalised programme", c6_tag2:"Stress-free",
-    exp_tag:"Years behind the wheel",
+    exp_tag:"Tradition & Expertise",
     why_eyebrow:"Why Tenné", why_t1:"We build drivers,", why_t2:"not just licences",
     why_lead:"Our goal isn't just for you to \"pass\". It's for you to get into any car, on any road, and feel confident.",
     f1_t:"Patient instructors", f1_p:"Every student has their own pace. Our instructors explain again and again — calmly, without raised voices. Always.",
@@ -890,7 +910,7 @@ var I18N = {
     s2_t:"Theory Lessons", s2_p:"Traffic-code lessons in our modern classroom and unlimited practice on mock tests, until you feel ready.",
     s3_t:"Practical Lessons", s3_p:"You drive in real conditions: traffic, parking, hill starts, the highway. With an instructor beside you at every turn.",
     s4_t:"Exams & Licence", s4_p:"You take the exam well prepared, in the vehicle you already know. And after that? The road is yours.",
-    g_eyebrow:"Gallery", g_t1:"Life", g_t2:"on the road",
+    g_eyebrow:"Gallery", g_t1:"Routes", g_t2:"of Confidence",
     g_lead:"Moments from lessons, routes and everyday life at the school. Click any photo to view it in full size.",
     r_eyebrow:"Reviews & Certifications", r_t1:"What our", r_t2:"drivers say",
     r_lead:"Over two decades of experience, with certified training and official operating licences — a school you can trust.",
@@ -903,8 +923,8 @@ var I18N = {
     rv6_p:"\"Theory scared me more than the practical. With the mock tests and the classroom explanations, I went into the exam like it was a test I'd already solved.\"", rv6_n:"Anna T.", rv6_r:"Category B licence",
     ct_eyebrow:"Contact", ct_t1:"Ready to", ct_t2:"take the wheel?",
     ct_phone:"Phone", ct_hours:"Opening Hours", ct_hours_v:"Monday – Friday 09:00–21:00 · Saturday 10:00–14:00",
-    loc1_badge:"Branch 1", loc1_t:"Lamprini", loc1_addr:"1 Amyklon St, Lamprini",
-    loc2_badge:"Branch 2", loc2_t:"Nea Ionia", loc2_addr:"63 Sinopis St, Nea Ionia",
+    loc1_badge:"Branch 1", loc1_t:"Lamprini", loc1_addr:"Amyklon 1, Lamprini",
+    loc2_badge:"Branch 2", loc2_t:"Nea Ionia", loc2_addr:"Sinopis 63, Nea Ionia",
     cta_t1:"Your first lesson", cta_t2:"starts with a phone call.",
     cta_p:"Tell us which licence you're interested in and we'll walk you through the process, cost and schedule step by step — with no commitment.",
     cta_btn:"Call us now",
@@ -1053,13 +1073,13 @@ document.addEventListener("keydown", function(e){
 });
 
 /* ============ Hero parallax ============ */
-var heroPhoto = document.querySelector(".hero-photo");
 var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-if(heroPhoto && !reduceMotion){
+var plateFloating = document.querySelector(".brand-plate-floating");
+if(plateFloating && !reduceMotion){
   window.addEventListener("scroll", function(){
     var y = window.scrollY;
     if(y < window.innerHeight){
-      heroPhoto.style.transform = "rotate(2.5deg) translateY(" + (y * .08) + "px)";
+      plateFloating.style.transform = "rotate(-7deg) translateY(" + (y * .1) + "px)";
     }
   }, {passive:true});
 }
