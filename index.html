@@ -12,6 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@500;600;700;800&family=Commissioner:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Favicon updated with your logo exactly as is -->
 <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/agelmet/TENNEODIGWN/refs/heads/main/Gemini_Generated_Image_ug4bh3ug4bh3ug4b-2.png">
 <style>
 /* ============ TOKENS ============ */
@@ -21,7 +22,6 @@
   --asphalt-3:#1D3157;
   --concrete:#F4F1EA;
   --white:#FFFFFF;
-  /* Signal color updated from orange to blue for better aesthetics */
   --signal:#1E90FF; /* DodgerBlue */
   --signal-deep:#1873CC;
   --ink:#131B2B;
@@ -66,7 +66,6 @@ header{position:fixed;top:0;left:0;right:0;z-index:1000;transition:background .3
 header.scrolled{background:rgba(21,23,28,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:12px 0;box-shadow:0 10px 30px -12px rgba(0,0,0,.5)}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:20px}
 .brand{display:flex;align-items:center;gap:12px;color:#fff}
-/* Logo adjusted: uncropped and slightly bigger */
 .brand .logo-img{width:auto;height:54px;display:block;margin:0;object-fit:contain;transition:transform .4s var(--ease)}
 .brand:hover .logo-img{transform:scale(1.04)}
 .brand-name{font-family:var(--font-display);font-weight:800;font-size:1.5rem;letter-spacing:.04em;line-height:1;text-transform:uppercase}
@@ -76,7 +75,6 @@ header.scrolled{background:rgba(21,23,28,.88);backdrop-filter:blur(14px);-webkit
 .nav-links a::after{content:"";position:absolute;left:0;bottom:-2px;width:100%;height:2px;background:repeating-linear-gradient(90deg,var(--signal) 0 7px,transparent 7px 12px);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
 .nav-links a:hover{color:#fff}
 .nav-links a:hover::after{transform:scaleX(1)}
-/* Contact link styled differently without CTAs logic, with improved margins */
 .nav-contact-link{border: 1px solid rgba(255,255,255,0.2);padding: 8px 18px;border-radius: 12px;transition: background .3s, color .3s, border-color .3s;margin-left: 10px;}
 .nav-contact-link::after{display:none}
 .nav-contact-link:hover{background: rgba(255,255,255,0.1);border-color: rgba(255,255,255,0.4);color: #fff !important;}
@@ -137,7 +135,6 @@ header.scrolled{background:rgba(21,23,28,.88);backdrop-filter:blur(14px);-webkit
 .hero-photo img{width:100%;height:520px;object-fit:cover;transition:transform 6s var(--ease)}
 .hero-photo:hover img{transform:scale(1.07)}
 .hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(200deg,transparent 55%,rgba(21,23,28,.65) 100%);pointer-events:none}
-/* Floating logo plate adjusted */
 .brand-plate-floating{position:absolute;top:-34px;left:-34px;width:auto;height:90px;object-fit:contain;filter:drop-shadow(0 18px 40px rgba(30,144,255,.4));animation:plateFloat 5s ease-in-out infinite;z-index:3}
 @keyframes plateFloat{0%,100%{transform:translateY(0) rotate(-7deg)}50%{transform:translateY(-14px) rotate(-3deg)}}
 .sign-chip{position:absolute;background:rgba(28,31,38,.85);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:12px 16px;display:flex;align-items:center;gap:12px;box-shadow:0 20px 50px -12px rgba(0,0,0,.6);z-index:3}
@@ -210,7 +207,6 @@ header.scrolled{background:rgba(21,23,28,.88);backdrop-filter:blur(14px);-webkit
 .why-photo::after{content:"";position:absolute;inset:26px -26px -26px 26px;border:1.5px dashed rgba(30,144,255,.4);border-radius:24px;z-index:-1}
 .exp-tag{position:absolute;bottom:-28px;left:-28px;background:var(--signal);color:#fff;border-radius:18px;padding:20px 26px;box-shadow:var(--shadow-glow);text-align:center}
 .exp-tag b{display:block;font-family:var(--font-display);font-weight:800;font-size:2.6rem;line-height:1}
-/* Tagline updated for better aesthetics */
 .exp-tag span{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
 .feature-list{display:flex;flex-direction:column;gap:8px;margin-top:2rem}
 .feature{display:flex;gap:18px;padding:20px;border-radius:16px;border:1px solid transparent;transition:background .35s,border-color .35s,transform .35s var(--ease)}
@@ -222,7 +218,8 @@ header.scrolled{background:rgba(21,23,28,.88);backdrop-filter:blur(14px);-webkit
 
 /* ============ PROCESS ============ */
 .process{background:var(--concrete);overflow:hidden}
-.route{position:relative;margin-top:3.6rem}
+.process-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-top:3.6rem}
+.route{position:relative;margin-top:0}
 .route::before{content:"";position:absolute;left:33px;top:10px;bottom:10px;width:4px;background:repeating-linear-gradient(180deg,var(--signal) 0 22px,transparent 22px 38px);border-radius:2px}
 .step{display:grid;grid-template-columns:70px 1fr;gap:26px;padding:26px 0;position:relative}
 .step .marker{width:68px;height:68px;border-radius:50%;background:var(--white);border:3px solid var(--signal);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;font-size:1.5rem;box-shadow:var(--shadow-md);position:relative;z-index:2;transition:transform .4s var(--ease),background .4s,color .4s}
@@ -231,6 +228,9 @@ header.scrolled{background:rgba(21,23,28,.88);backdrop-filter:blur(14px);-webkit
 .step:hover .step-body{transform:translateX(8px);box-shadow:var(--shadow-md)}
 .step-body h3{font-size:1.4rem;font-weight:700;text-transform:uppercase;margin-bottom:6px}
 .step-body p{color:var(--muted);font-size:.97rem}
+.process-image{position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-md);cursor:zoom-in}
+.process-image img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s var(--ease)}
+.process-image:hover img{transform:scale(1.02)}
 
 /* ============ GALLERY ============ */
 .gallery{background:var(--white)}
@@ -251,7 +251,7 @@ header.scrolled{background:rgba(21,23,28,.88);backdrop-filter:blur(14px);-webkit
 .certs img{width:100%;height:340px;object-fit:cover;transition:transform 4s var(--ease)}
 .certs:hover img{transform:scale(1.06)}
 .certs figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 22px 16px;font-size:.82rem;font-weight:600;letter-spacing:.03em;color:#fff;background:linear-gradient(0deg,rgba(14,27,51,0.92),transparent)}
-@media(max-width:900px){.reviews-head{grid-template-columns:1fr;gap:32px}.certs img{height:280px}}
+@media(max-width:900px){.reviews-head{grid-template-columns:1fr;gap:32px}.certs img{height:280px}.process-grid{grid-template-columns:1fr;gap:40px}}
 .marquee{display:flex;gap:24px;width:max-content;animation:marquee 46s linear infinite}
 .marquee:hover{animation-play-state:paused}
 @keyframes marquee{to{transform:translateX(-50%)}}
@@ -295,7 +295,6 @@ header.scrolled{background:rgba(21,23,28,.88);backdrop-filter:blur(14px);-webkit
 /* ============ FOOTER ============ */
 footer{background:#101216;color:rgba(255,255,255,0.55);padding:56px 0 30px}
 .footer-grid{display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap;padding-bottom:34px;border-bottom:1px solid rgba(255,255,255,0.07);margin-bottom:26px}
-/* Updated brand styles in footer for uncropped logo */
 .footer .brand .logo-img{height:46px;}
 .footer-nav{display:flex;gap:26px;flex-wrap:wrap}
 .footer-nav a{font-size:.9rem;transition:color .25s}
@@ -361,12 +360,13 @@ footer{background:#101216;color:rgba(255,255,255,0.55);padding:56px 0 30px}
 
 <div id="roadProgress"></div>
 
+<!-- ============ NAV ============ -->
 <header id="header">
   <div class="container nav">
     <a href="#home" class="brand" aria-label="Σχολή Οδηγών Σαράντος | ΣΧΟΛΕΣ ΟΔΗΓΩΝ">
       <img src="https://raw.githubusercontent.com/agelmet/TENNEODIGWN/refs/heads/main/Gemini_Generated_Image_ug4bh3ug4bh3ug4b-2.png" alt="Logo Plate" class="logo-img">
       <span>
-        <span class="brand-name">ΣΧΟΛΕΣ ΟΔΗΓΩΝ</span>
+        <span class="brand-name" data-i="brand_name">ΣΧΟΛΕΣ ΟΔΗΓΩΝ</span>
       </span>
     </a>
     <nav class="nav-links" aria-label="Κύριο μενού">
@@ -393,6 +393,7 @@ footer{background:#101216;color:rgba(255,255,255,0.55);padding:56px 0 30px}
   </div>
 </header>
 
+<!-- Mobile menu -->
 <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
   <button class="mobile-close" id="mobileClose" aria-label="Κλείσιμο μενού">
     <svg viewBox="0 0 24 24" fill="none"><path d="M5 5l14 14M19 5L5 19"/></svg>
@@ -415,6 +416,7 @@ footer{background:#101216;color:rgba(255,255,255,0.55);padding:56px 0 30px}
   </div>
 </div>
 
+<!-- ============ HERO ============ -->
 <section class="hero" id="home">
   <div class="lane l1"></div>
   <div class="lane l2"></div>
@@ -467,6 +469,7 @@ footer{background:#101216;color:rgba(255,255,255,0.55);padding:56px 0 30px}
   <div class="hero-scroll"><span data-i="scroll_hint">Κύλισε</span><span class="wheel"></span></div>
 </section>
 
+<!-- ============ STATS ============ -->
 <section class="stats" aria-label="Στατιστικά σχολής">
   <div class="stats-grid container">
     <div class="stat reveal"><b><span class="counter" data-target="25">0</span>+</b><span data-i="stat1">Χρόνια εμπειρίας</span></div>
@@ -476,6 +479,7 @@ footer{background:#101216;color:rgba(255,255,255,0.55);padding:56px 0 30px}
   </div>
 </section>
 
+<!-- ============ LICENSES ============ -->
 <section class="licenses" id="diplomas">
   <div class="container">
     <div class="section-head">
@@ -550,6 +554,7 @@ footer{background:#101216;color:rgba(255,255,255,0.55);padding:56px 0 30px}
   </div>
 </section>
 
+<!-- ============ WHY ============ -->
 <section class="why" id="school">
   <div class="lane l1"></div>
   <div class="lane l3"></div>
@@ -601,6 +606,7 @@ footer{background:#101216;color:rgba(255,255,255,0.55);padding:56px 0 30px}
   </div>
 </section>
 
+<!-- ============ PROCESS ============ -->
 <section class="process">
   <div class="container">
     <div class="reveal">
@@ -608,42 +614,47 @@ footer{background:#101216;color:rgba(255,255,255,0.55);padding:56px 0 30px}
       <h2 class="section-title"><span data-i="pr_t1">Από την εγγραφή</span> <em data-i="pr_t2">στο δίπλωμα</em></h2>
       <p class="lead" data-i="pr_lead">Τέσσερα βήματα, καμία γραφειοκρατική ταλαιπωρία για σένα. Αναλαμβάνουμε εμείς όλα τα ενδιάμεσα.</p>
     </div>
-    <div class="route">
-      <div class="step reveal-left">
-        <span class="marker">1</span>
-        <div class="step-body">
-          <h3 data-i="s1_t">Εγγραφή & Δικαιολογητικά</h3>
-          <p data-i="s1_p">Έρχεσαι με ταυτότητα και φωτογραφίες — τα υπόλοιπα τα τακτοποιούμε εμείς: αιτήσεις, παράβολα, ιατρικές εξετάσεις.</p>
+    
+    <div class="process-grid">
+      <div class="route">
+        <div class="step reveal-left">
+          <span class="marker">1</span>
+          <div class="step-body">
+            <h3 data-i="s1_t">Εγγραφή & Δικαιολογητικά</h3>
+            <p data-i="s1_p">Έρχεσαι με ταυτότητα και φωτογραφίες — τα υπόλοιπα τα τακτοποιούμε εμείς: αιτήσεις, παράβολα, ιατρικές εξετάσεις.</p>
+          </div>
+        </div>
+        <div class="step reveal-left" data-delay="1">
+          <span class="marker">2</span>
+          <div class="step-body">
+            <h3 data-i="s2_t">Θεωρητικά Μαθήματα</h3>
+            <p data-i="s2_p">Μαθήματα ΚΟΚ στη σύγχρονη αίθουσά μας και απεριόριστη εξάσκηση σε τεστ προσομοίωσης, μέχρι να νιώσεις έτοιμος.</p>
+          </div>
+        </div>
+        <div class="step reveal-left" data-delay="2">
+          <span class="marker">3</span>
+          <div class="step-body">
+            <h3 data-i="s3_t">Πρακτικά Μαθήματα</h3>
+            <p data-i="s3_p">Οδηγείς σε πραγματικές συνθήκες: κίνηση, παρκάρισμα, ανηφόρες, εθνική οδό. Με εκπαιδευτή δίπλα σου σε κάθε στροφή.</p>
+          </div>
+        </div>
+        <div class="step reveal-left" data-delay="3">
+          <span class="marker">4</span>
+          <div class="step-body">
+            <h3 data-i="s4_t">Εξετάσεις & Δίπλωμα</h3>
+            <p data-i="s4_p">Πηγαίνεις στην εξέταση προετοιμασμένος και με το όχημα που ήδη ξέρεις. Και μετά; Ο δρόμος είναι δικός σου.</p>
+          </div>
         </div>
       </div>
-      <div class="step reveal-left" data-delay="1">
-        <span class="marker">2</span>
-        <div class="step-body">
-          <h3 data-i="s2_t">Θεωρητικά Μαθήματα</h3>
-          <p data-i="s2_p">Μαθήματα ΚΟΚ στη σύγχρονη αίθουσά μας και απεριόριστη εξάσκηση σε τεστ προσομοίωσης, μέχρι να νιώσεις έτοιμος.</p>
-        </div>
-      </div>
-      <div class="step reveal-left" data-delay="2">
-        <span class="marker">3</span>
-        <div class="step-body">
-          <h3 data-i="s3_t">Πρακτικά Μαθήματα</h3>
-          <p data-i="s3_p">Οδηγείς σε πραγματικές συνθήκες: κίνηση, παρκάρισμα, ανηφόρες, εθνική οδό. Με εκπαιδευτή δίπλα σου σε κάθε στροφή.</p>
-        </div>
-      </div>
-      <div class="step reveal-left" data-delay="3">
-        <span class="marker">4</span>
-        <div class="step-body">
-          <h3 data-i="s4_t">Εξετάσεις & Δίπλωμα</h3>
-          <p data-i="s4_p">Πηγαίνεις στην εξέταση προετοιμασμένος και με το όχημα που ήδη ξέρεις. Και μετά; Ο δρόμος είναι δικός σου.</p>
-        </div>
+      <div class="process-image reveal-scale">
+        <img src="https://raw.githubusercontent.com/agelmet/TENNEODIGWN/refs/heads/main/aslsda.jpg" alt="Εκπαιδευτικό Μάθημα" class="zoomable">
       </div>
     </div>
-    <div class="reveal-scale" style="margin-top: clamp(2rem, 5vw, 4rem);">
-        <img src="https://raw.githubusercontent.com/agelmet/TENNEODIGWN/refs/heads/main/aslsda.jpg" alt="Εκπαιδευτικό Μάθημα" style="border-radius: var(--radius); width: 100%; height: auto; box-shadow: var(--shadow-md); transition: transform 0.3s; cursor: zoom-in;" class="zoomable">
-    </div>
+
   </div>
 </section>
 
+<!-- ============ GALLERY ============ -->
 <section class="gallery" id="gallery">
   <div class="container">
     <div class="section-head">
@@ -665,6 +676,7 @@ footer{background:#101216;color:rgba(255,255,255,0.55);padding:56px 0 30px}
   </div>
 </section>
 
+<!-- ============ REVIEWS ============ -->
 <section class="reviews" id="reviews">
   <div class="container reviews-head">
     <div class="reveal">
@@ -711,6 +723,7 @@ footer{background:#101216;color:rgba(255,255,255,0.55);padding:56px 0 30px}
   </div>
 </section>
 
+<!-- ============ CONTACT ============ -->
 <section class="contact" id="contact">
   <div class="container">
     <div class="reveal" style="margin-bottom:3.4rem">
@@ -767,13 +780,14 @@ footer{background:#101216;color:rgba(255,255,255,0.55);padding:56px 0 30px}
   </div>
 </section>
 
+<!-- ============ FOOTER ============ -->
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
       <a href="#home" class="brand" aria-label="Σχολή Οδηγών Σαράντος | ΣΧΟΛΕΣ ΟΔΗΓΩΝ">
         <img src="https://raw.githubusercontent.com/agelmet/TENNEODIGWN/refs/heads/main/Gemini_Generated_Image_ug4bh3ug4bh3ug4b-2.png" alt="Logo Plate" class="logo-img">
         <span>
-          <span class="brand-name">ΣΧΟΛΕΣ ΟΔΗΓΩΝ</span>
+          <span class="brand-name" data-i="brand_name">ΣΧΟΛΕΣ ΟΔΗΓΩΝ</span>
         </span>
       </a>
       <nav class="footer-nav" aria-label="Μενού υποσέλιδου">
@@ -791,6 +805,7 @@ footer{background:#101216;color:rgba(255,255,255,0.55);padding:56px 0 30px}
   </div>
 </footer>
 
+<!-- ============ LIGHTBOX ============ -->
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Προβολή εικόνας">
   <button class="lightbox-close" id="lightboxClose" aria-label="Κλείσιμο">
     <svg viewBox="0 0 24 24" fill="none"><path d="M5 5l14 14M19 5L5 19"/></svg>
@@ -805,6 +820,7 @@ footer{background:#101216;color:rgba(255,255,255,0.55);padding:56px 0 30px}
 /* ============ i18n ============ */
 var I18N = {
   el: {
+    brand_name:"ΣΧΟΛΕΣ ΟΔΗΓΩΝ",
     nav_home:"Αρχική", nav_lic:"Διπλώματα", nav_school:"Η Σχολή", nav_gallery:"Γκαλερί", nav_reviews:"Κριτικές", nav_contact:"Επικοινωνία",
     hero_eyebrow:"Σχολή Οδηγών · Σαράντος",
     hero_t1:"Το δίπλωμα είναι η αρχή.",
@@ -859,6 +875,7 @@ var I18N = {
     credit:"Κατασκευή ιστοσελίδας από"
   },
   en: {
+    brand_name:"DRIVING SCHOOLS",
     nav_home:"Home", nav_lic:"Licences", nav_school:"The School", nav_gallery:"Gallery", nav_reviews:"Reviews", nav_contact:"Contact",
     hero_eyebrow:"Driving School · Sarantos",
     hero_t1:"The licence is the beginning.",
